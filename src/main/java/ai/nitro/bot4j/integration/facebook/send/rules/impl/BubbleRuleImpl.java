@@ -50,7 +50,8 @@ public class BubbleRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	protected com.restfb.types.send.Bubble createBubble(final Bubble bubbleSendPayload) {
-		final com.restfb.types.send.Bubble result = new com.restfb.types.send.Bubble(bubbleSendPayload.getTitle());
+		final String title = bubbleSendPayload.getTitle();
+		final com.restfb.types.send.Bubble result = new com.restfb.types.send.Bubble(title);
 		result.setImageUrl(bubbleSendPayload.getImageUrl());
 		result.setSubtitle(bubbleSendPayload.getText());
 		result.setItemUrl(bubbleSendPayload.getUrl());
