@@ -1,7 +1,8 @@
 bot4j
 =====
 
-<a href="https://travis-ci.org/nitro-code/bot4j"><img src="https://api.travis-ci.org/nitro-code/bot4j.png"></a>
+[![Build](https://api.travis-ci.org/nitro-code/bot4j.png)](https://travis-ci.org/nitro-code/bot4j)
+[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 This is a bot framework for Java, which enables the development of lightweight messenger bots (a.k.a. chatbots) with Java. It provides integrations for Facebook Messenger and Slack and internally unifies message formats by a messaging middleware.
 
