@@ -1,7 +1,7 @@
 bot4j
 =====
 
-[![Build](https://api.travis-ci.org/nitro-code/bot4j.png)](https://travis-ci.org/nitro-code/bot4j)
+[![Build](https://img.shields.io/travis/nitro-code/bot4j.svg)](https://travis-ci.org/nitro-code/bot4j)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
 This is a bot framework for Java, which enables the development of lightweight messenger bots (a.k.a. chatbots) with Java. It provides integrations for Facebook Messenger and Slack and internally unifies message formats by a messaging middleware.
@@ -41,7 +41,7 @@ To include bot4j in your Maven project edit your `pom.xml` file as follows
 Messenger Integration
 ---------------------
 
-The bot4j framework provides webhooks for receiving messages from Facebook (`FacebookWebhook`) and Slack (`SlackEventWebhook`, `SlackActionWebhook` and `SlackOAuthWebhook`). Bots can send messages to Facebook and Slack, if authentication parameters are set in `facebook.properties` and `slack.properties`. 
+The bot4j framework provides webhooks for receiving messages from Facebook (`FacebookWebhook`) and Slack (`SlackEventWebhook`, `SlackActionWebhook` and `SlackOAuthWebhook`). Bots can send messages to Facebook and Slack, if authentication parameters are set in `facebook.properties` and `slack.properties`.
 
 Additional messenger integrations are in the works.
 
@@ -57,7 +57,7 @@ Incoming messages are converted to the internal `ReceiveMessage` format containi
 Dependency Injection
 --------------------
 
-All framework classes are instantiated by dependency injection and therefore can be substituted with custom implementations. Dependency injection is based on [guice](https://github.com/google/guice) and [JSR 330](https://www.jcp.org/en/jsr/detail?id=330). 
+All framework classes are instantiated by dependency injection and therefore can be substituted with custom implementations. Dependency injection is based on [guice](https://github.com/google/guice) and [JSR 330](https://www.jcp.org/en/jsr/detail?id=330).
 
 
 License
