@@ -2,6 +2,8 @@ package ai.nitro.bot4j.integration.telegram.receive.impl;
 
 import javax.inject.Inject;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.util.Strings;
 
 import com.pengrad.telegrambot.model.Audio;
@@ -22,6 +24,8 @@ import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
 
 public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessageFactory {
 
+	final static Logger LOG = LogManager.getLogger(TelegramReceiveMessageFactoryImpl.class);
+
 	@Inject
 	protected TelegramReceivePayloadFactory telegramReceivePayloadFactory;
 
@@ -32,7 +36,7 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 
 		if (update.message() != null) {
 			handleMessage(update.message(), result);
-			handleSender(update.message().from().id(), result);
+			handleSender(update.message().chat().id().intValue(), result);
 		}
 
 		if (update.callbackQuery() != null) {
