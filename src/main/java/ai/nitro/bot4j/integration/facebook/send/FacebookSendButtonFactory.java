@@ -9,18 +9,10 @@
 package ai.nitro.bot4j.integration.facebook.send;
 
 import com.restfb.types.send.AbstractButton;
-import com.restfb.types.send.PostbackButton;
-import com.restfb.types.send.WebButton;
 
 import ai.nitro.bot4j.middle.domain.send.button.AbstractSendButton;
-import ai.nitro.bot4j.middle.domain.send.button.PostbackSendButton;
-import ai.nitro.bot4j.middle.domain.send.button.WebSendButton;
 
 public interface FacebookSendButtonFactory {
 
 	AbstractButton createAbstractButton(AbstractSendButton abstractSendButton);
-
-	PostbackButton createPostbackButton(PostbackSendButton postbackSendButton);
-
-	WebButton creatWebButton(WebSendButton webSendButton);
 }

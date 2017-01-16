@@ -16,9 +16,9 @@ import com.restfb.types.send.WebButton;
 
 import ai.nitro.bot4j.integration.facebook.send.FacebookSendButtonFactory;
 import ai.nitro.bot4j.middle.domain.send.button.AbstractSendButton;
+import ai.nitro.bot4j.middle.domain.send.button.AbstractSendButton.Type;
 import ai.nitro.bot4j.middle.domain.send.button.PostbackSendButton;
 import ai.nitro.bot4j.middle.domain.send.button.WebSendButton;
-import ai.nitro.bot4j.middle.domain.send.button.AbstractSendButton.Type;
 import ai.nitro.bot4j.middle.payload.PostbackPayload;
 import ai.nitro.bot4j.middle.payload.PostbackPayloadService;
 
@@ -46,8 +46,7 @@ public class FacebookSendButtonFactoryImpl implements FacebookSendButtonFactory 
 		return result;
 	}
 
-	@Override
-	public PostbackButton createPostbackButton(final PostbackSendButton postbackSendButton) {
+	protected PostbackButton createPostbackButton(final PostbackSendButton postbackSendButton) {
 		final String title = postbackSendButton.getTitle();
 		final String name = postbackSendButton.getName();
 		final String[] payload = postbackSendButton.getPayload();
@@ -61,8 +60,7 @@ public class FacebookSendButtonFactoryImpl implements FacebookSendButtonFactory 
 		return result;
 	}
 
-	@Override
-	public WebButton creatWebButton(final WebSendButton webSendButton) {
+	protected WebButton creatWebButton(final WebSendButton webSendButton) {
 		final String title = webSendButton.getTitle();
 		final String webUrl = webSendButton.getUrl();
 		final WebButton result = new WebButton(title, webUrl);

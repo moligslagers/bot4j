@@ -88,7 +88,12 @@
 			<artifactId>jslack</artifactId>
 			<version>1.0.5</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.github.pengrad</groupId>
+			<artifactId>java-telegram-bot-api</artifactId>
+			<version>2.3.1</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

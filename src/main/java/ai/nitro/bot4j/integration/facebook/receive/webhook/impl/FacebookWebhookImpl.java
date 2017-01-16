@@ -78,7 +78,9 @@ public class FacebookWebhookImpl implements FacebookWebhook {
 
 	protected void handleWebhookEntry(final WebhookEntry webhookEntry) {
 		for (final MessagingItem messagingItem : webhookEntry.getMessaging()) {
-			handleMessagingItem(messagingItem);
+			if (messagingItem != null) {
+				handleMessagingItem(messagingItem);
+			}
 		}
 	}
 

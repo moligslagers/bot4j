@@ -12,6 +12,7 @@ import com.google.inject.AbstractModule;
 
 import ai.nitro.bot4j.integration.facebook.FacebookModule;
 import ai.nitro.bot4j.integration.slack.SlackModule;
+import ai.nitro.bot4j.integration.telegram.TelegramModule;
 import ai.nitro.bot4j.middle.MiddlewareModule;
 import ai.nitro.bot4j.template.TemplateModule;
 
@@ -21,6 +22,7 @@ public class Bot4jModule extends AbstractModule {
 	protected void configure() {
 		install(new FacebookModule());
 		install(new SlackModule());
+		install(new TelegramModule());
 		install(new MiddlewareModule());
 		install(new TemplateModule());
 	}

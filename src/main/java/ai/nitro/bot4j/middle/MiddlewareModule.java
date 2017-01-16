@@ -15,6 +15,8 @@ import ai.nitro.bot4j.integration.facebook.domain.FacebookPlatformEnum;
 import ai.nitro.bot4j.integration.facebook.send.impl.FacebookMessageSenderImpl;
 import ai.nitro.bot4j.integration.slack.domain.SlackPlatformEnum;
 import ai.nitro.bot4j.integration.slack.send.impl.SlackMessageSenderImpl;
+import ai.nitro.bot4j.integration.telegram.domain.TelegramPlatformEnum;
+import ai.nitro.bot4j.integration.telegram.send.impl.TelegramMessageSenderImpl;
 import ai.nitro.bot4j.middle.domain.Platform;
 import ai.nitro.bot4j.middle.payload.PostbackPayloadService;
 import ai.nitro.bot4j.middle.payload.impl.PostbackPayloadServiceImpl;
@@ -39,6 +41,7 @@ public class MiddlewareModule extends AbstractModule {
 				Platform.class, PlatformMessageSender.class);
 		platformMessageSenderBinder.addBinding(FacebookPlatformEnum.FACEBOOK).to(FacebookMessageSenderImpl.class);
 		platformMessageSenderBinder.addBinding(SlackPlatformEnum.SLACK).to(SlackMessageSenderImpl.class);
+		platformMessageSenderBinder.addBinding(TelegramPlatformEnum.TELEGRAM).to(TelegramMessageSenderImpl.class);
 	}
 
 }

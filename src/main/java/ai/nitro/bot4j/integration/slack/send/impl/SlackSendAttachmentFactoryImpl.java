@@ -32,19 +32,18 @@ public class SlackSendAttachmentFactoryImpl implements SlackSendAttachmentFactor
 
 		switch (button.getType()) {
 		case POSTBACK_BUTTON:
-			result = createAttachment((PostbackSendButton) button);
+			result = createPostbackButton((PostbackSendButton) button);
 			break;
 		case WEB_BUTTON:
 		default:
-			result = createAttachment((WebSendButton) button);
+			result = createWebButton((WebSendButton) button);
 			break;
 		}
 
 		return result;
 	}
 
-	@Override
-	public ActionAttachment createAttachment(final PostbackSendButton postbackSendButton) {
+	protected ActionAttachment createPostbackButton(final PostbackSendButton postbackSendButton) {
 		final Action action = slackSendActionFactory.createPostbackAction(postbackSendButton);
 
 		final ActionAttachment result = new ActionAttachment();
@@ -56,8 +55,7 @@ public class SlackSendAttachmentFactoryImpl implements SlackSendAttachmentFactor
 		return result;
 	}
 
-	@Override
-	public Attachment createAttachment(final WebSendButton webSendButton) {
+	protected Attachment createWebButton(final WebSendButton webSendButton) {
 		return Attachment.builder().title(webSendButton.getTitle()).titleLink(webSendButton.getUrl())
 				.fallback(webSendButton.getTitle()).build();
 	}

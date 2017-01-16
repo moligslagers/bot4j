@@ -1,0 +1,56 @@
+package ai.nitro.bot4j.integration.telegram.send.rules.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.logging.log4j.util.Strings;
+
+import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
+import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
+
+import ai.nitro.bot4j.integration.telegram.send.TelegramSendInlineKeyboardFactory;
+import ai.nitro.bot4j.middle.domain.send.SendMessage;
+import ai.nitro.bot4j.middle.domain.send.button.AbstractSendButton;
+import ai.nitro.bot4j.middle.domain.send.payload.AbstractSendPayload.Type;
+import ai.nitro.bot4j.middle.domain.send.payload.ButtonsSendPayload;
+
+public class ButtonsRuleImpl extends AbstractTelegramSendRuleImpl {
+
+	@Inject
+	protected TelegramSendInlineKeyboardFactory telegramSendInlineKeyboardFactory;
+
+	@Override
+	public boolean applies(final SendMessage sendMessage) {
+		return hasPayloadType(Type.BUTTONS, sendMessage);
+	}
+
+	@Override
+	public void apply(final SendMessage sendMessage) {
+		final ButtonsSendPayload buttonsSendPayload = sendMessage.getPayloadWithType(ButtonsSendPayload.class);
+
+		final List<InlineKeyboardButton> buttonList = new ArrayList<InlineKeyboardButton>();
+
+		for (final AbstractSendButton button : buttonsSendPayload.getButtons()) {
+			buttonList.add(telegramSendInlineKeyboardFactory.createInlineKeyboard(button));
+		}
+
+		InlineKeyboardButton[] inlineKeyboardButtons = new InlineKeyboardButton[buttonList.size()];
+		inlineKeyboardButtons = buttonList.toArray(inlineKeyboardButtons);
+		final InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup(inlineKeyboardButtons);
+
+		String title = buttonsSendPayload.getTitle();
+
+		if (Strings.isBlank(title)) {
+			title = "undefined title of buttonSendPayload";
+		}
+
+		final String recipient = sendMessage.getRecipient().getId();
+
+		final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
+				recipient, title).replyMarkup(inlineKeyboardMarkup);
+		super.execute(sendMessageTelegram, recipient);
+	}
+
+}
