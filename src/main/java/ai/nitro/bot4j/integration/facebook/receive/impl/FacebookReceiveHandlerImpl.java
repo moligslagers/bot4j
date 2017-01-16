@@ -28,6 +28,9 @@ public class FacebookReceiveHandlerImpl implements FacebookReceiveHandler {
 	@Override
 	public void handleMessagingItem(final MessagingItem messagingItem) {
 		final ReceiveMessage receiveMessage = facebookReceiveMessageFactory.createReceiveMessage(messagingItem);
-		messageReceiver.receive(receiveMessage);
+
+		if (receiveMessage != null) {
+			messageReceiver.receive(receiveMessage);
+		}
 	}
 }

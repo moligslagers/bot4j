@@ -37,12 +37,18 @@ public class SlackReceiveHandlerImpl implements SlackReceiveHandler {
 	@Override
 	public void handleAction(final JsonObject actionJsonObject) {
 		final ReceiveMessage receiveMessage = slackReceiveActionMessageFactory.createReceiveMessage(actionJsonObject);
-		messageReceiver.receive(receiveMessage);
+
+		if (receiveMessage != null) {
+			messageReceiver.receive(receiveMessage);
+		}
 	}
 
 	@Override
 	public void handleEvent(final JsonObject eventJsonObject) {
 		final ReceiveMessage receiveMessage = slackReceiveEventMessageFactory.createReceiveMessage(eventJsonObject);
-		messageReceiver.receive(receiveMessage);
+
+		if (receiveMessage != null) {
+			messageReceiver.receive(receiveMessage);
+		}
 	}
 }
