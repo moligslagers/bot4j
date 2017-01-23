@@ -24,7 +24,7 @@ public class ListSendPayload extends AbstractSendPayload {
 
 	protected List<ListSendElement> listElements = new ArrayList<ListSendElement>();
 
-	protected Style style;
+	protected Style style = Style.LARGE;
 
 	protected String title;
 
