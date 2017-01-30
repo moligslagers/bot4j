@@ -62,6 +62,32 @@ public class Bot4jSpeechlet implements SpeechletV2 {
 		return nlpContext;
 	}
 
+	protected ReceiveMessage createReceiveMessage(final IntentRequest intentRequest, final User user) {
+		final Participant sender = createSender(user);
+
+		final ReceiveMessage result = new ReceiveMessage();
+		result.setMessageId(intentRequest.getRequestId());
+		result.setSender(sender);
+
+		final TextReceivePayload textReceivePayload = createTextReceivePayload(intentRequest);
+		result.addPayload(textReceivePayload);
+		return result;
+	}
+
+	protected Participant createSender(final User user) {
+		final Participant sender = new Participant();
+		sender.setPlatform(AlexaPlatformEnum.ALEXA);
+		sender.setId(user.getUserId());
+		return sender;
+	}
+
+	protected TextReceivePayload createTextReceivePayload(final IntentRequest intentRequest) {
+		final NlpContext nlpContext = createNlpContext(intentRequest.getIntent());
+		final TextReceivePayload result = new TextReceivePayload();
+		result.setNlpContext(nlpContext);
+		return result;
+	}
+
 	@Override
 	public SpeechletResponse onIntent(final SpeechletRequestEnvelope<IntentRequest> requestEnvelope) {
 		LOG.info("onIntent requestId={}, sessionId={}", requestEnvelope.getRequest().getRequestId(),
@@ -97,20 +123,7 @@ public class Bot4jSpeechlet implements SpeechletV2 {
 	}
 
 	protected void receiveMessage(final IntentRequest intentRequest, final User user) {
-		final NlpContext nlpContext = createNlpContext(intentRequest.getIntent());
-
-		final TextReceivePayload textReceivePayload = new TextReceivePayload();
-		textReceivePayload.setNlpContext(nlpContext);
-
-		final Participant sender = new Participant();
-		sender.setId(user.getUserId());
-		sender.setPlatform(AlexaPlatformEnum.ALEXA);
-
-		final ReceiveMessage receiveMessage = new ReceiveMessage();
-		receiveMessage.addPayload(textReceivePayload);
-		receiveMessage.setMessageId(intentRequest.getRequestId());
-		receiveMessage.setSender(sender);
-
+		final ReceiveMessage receiveMessage = createReceiveMessage(intentRequest, user);
 		messageReceiver.receive(receiveMessage);
 	}
 

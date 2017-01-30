@@ -6,7 +6,7 @@
  * of the BSD 3-clause license. See the LICENSE file for details.
  */
 
-package ai.nitro.bot4j.integration.alexa.receive.hook;
+package ai.nitro.bot4j.integration.alexa.receive.webhook;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

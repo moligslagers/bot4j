@@ -10,6 +10,9 @@ package ai.nitro.bot4j.integration.alexa.send.impl;
 
 import javax.inject.Singleton;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import ai.nitro.bot4j.integration.alexa.domain.AlexaPlatformEnum;
 import ai.nitro.bot4j.integration.alexa.send.AlexaMessageSender;
 import ai.nitro.bot4j.middle.domain.Platform;
@@ -21,9 +24,11 @@ import ai.nitro.bot4j.middle.domain.send.payload.TextSendPayload;
 @Singleton
 public class AlexaMessageSenderImpl implements AlexaMessageSender {
 
+	static Logger LOG = LogManager.getLogger(AlexaMessageSenderImpl.class);
+
 	protected ThreadLocal<StringBuilder> threadLocalText = new ThreadLocal<>();
 
-	protected void assureThreadLocalText() {
+	protected void assureThreadLocalStringBuilder() {
 		if (threadLocalText.get() == null) {
 			threadLocalText.set(new StringBuilder());
 		}
@@ -45,18 +50,20 @@ public class AlexaMessageSenderImpl implements AlexaMessageSender {
 		boolean result = false;
 
 		final AbstractSendPayload sendPayload = sendMessage.getPayload();
+		final Type type = sendPayload.getType();
 
-		if (Type.TEXT.equals(sendPayload.getType())) {
+		if (Type.TEXT.equals(type)) {
 			final TextSendPayload textSendPayload = (TextSendPayload) sendPayload;
 			final String text = textSendPayload.getText();
 
-			assureThreadLocalText();
+			assureThreadLocalStringBuilder();
 
 			threadLocalText.get().append(text);
 			result = true;
+		} else {
+			LOG.warn("ignoring send payload with type {}", type);
 		}
 
 		return result;
 	}
-
 }

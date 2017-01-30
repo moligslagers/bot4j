@@ -31,13 +31,10 @@ public class AlexaReceiveHandlerImpl implements AlexaReceiveHandler {
 
 	@Override
 	public byte[] handleSpeechletRequest(final byte[] speechletRequest) {
-		LOG.warn("handleSpeechletRequest");
-
-		final ServletSpeechletRequestHandler speechletRequestHandler = new ServletSpeechletRequestHandler();
-
 		byte[] result = null;
 
 		try {
+			final ServletSpeechletRequestHandler speechletRequestHandler = new ServletSpeechletRequestHandler();
 			result = speechletRequestHandler.handleSpeechletCall(bot4jSpeechlet, speechletRequest);
 		} catch (IOException | SpeechletRequestHandlerException | SpeechletException e) {
 			LOG.warn(e.getMessage(), e);

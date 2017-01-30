@@ -11,9 +11,9 @@ package ai.nitro.bot4j.integration.alexa;
 import com.google.inject.AbstractModule;
 
 import ai.nitro.bot4j.integration.alexa.receive.AlexaReceiveHandler;
-import ai.nitro.bot4j.integration.alexa.receive.hook.AlexaWebhook;
-import ai.nitro.bot4j.integration.alexa.receive.hook.impl.AlexaWebhookImpl;
 import ai.nitro.bot4j.integration.alexa.receive.impl.AlexaReceiveHandlerImpl;
+import ai.nitro.bot4j.integration.alexa.receive.webhook.AlexaWebhook;
+import ai.nitro.bot4j.integration.alexa.receive.webhook.impl.AlexaWebhookImpl;
 import ai.nitro.bot4j.integration.alexa.send.AlexaMessageSender;
 import ai.nitro.bot4j.integration.alexa.send.impl.AlexaMessageSenderImpl;
 

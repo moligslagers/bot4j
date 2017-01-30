@@ -6,7 +6,7 @@
  * of the BSD 3-clause license. See the LICENSE file for details.
  */
 
-package ai.nitro.bot4j.integration.alexa.receive.hook.impl;
+package ai.nitro.bot4j.integration.alexa.receive.webhook.impl;
 
 import java.io.IOException;
 
@@ -19,7 +19,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import ai.nitro.bot4j.integration.alexa.receive.AlexaReceiveHandler;
-import ai.nitro.bot4j.integration.alexa.receive.hook.AlexaWebhook;
+import ai.nitro.bot4j.integration.alexa.receive.webhook.AlexaWebhook;
 
 public class AlexaWebhookImpl implements AlexaWebhook {
 
@@ -34,10 +34,7 @@ public class AlexaWebhookImpl implements AlexaWebhook {
 
 		try {
 			final byte[] serializedSpeechletRequest = IOUtils.toByteArray(req.getInputStream());
-			LOG.info("serializedSpeechletRequest");
-
 			final byte[] outputBytes = alexaReceiveHandler.handleSpeechletRequest(serializedSpeechletRequest);
-
 			result = new String(outputBytes);
 		} catch (final IOException e) {
 			LOG.warn(e.getMessage(), e);
