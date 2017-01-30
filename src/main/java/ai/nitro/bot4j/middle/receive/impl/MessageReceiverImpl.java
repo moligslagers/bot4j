@@ -16,6 +16,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import ai.nitro.bot4j.bot.Bot;
+import ai.nitro.bot4j.integration.alexa.domain.AlexaPlatformEnum;
+import ai.nitro.bot4j.middle.domain.Participant;
+import ai.nitro.bot4j.middle.domain.Platform;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
 import ai.nitro.bot4j.middle.receive.DuplicateMessageFilter;
 import ai.nitro.bot4j.middle.receive.MessageReceiver;
@@ -30,7 +33,7 @@ public class MessageReceiverImpl implements MessageReceiver {
 	@Inject
 	protected DuplicateMessageFilter duplicateMessageFilter;
 
-	protected void handleAsync(final ReceiveMessage receiveMessage) {
+	protected void handleReceiveMessage(final ReceiveMessage receiveMessage) {
 		try {
 			final boolean isDuplicateMessage = duplicateMessageFilter.isDuplicate(receiveMessage);
 
@@ -44,8 +47,21 @@ public class MessageReceiverImpl implements MessageReceiver {
 		}
 	}
 
+	protected boolean isPlatformAsync(final Platform platform) {
+		final boolean result = !AlexaPlatformEnum.ALEXA.equals(platform);
+		return result;
+	}
+
 	@Override
 	public void receive(final ReceiveMessage receiveMessage) {
-		CompletableFuture.runAsync(() -> handleAsync(receiveMessage));
+		final Participant sender = receiveMessage.getSender();
+		final Platform platform = sender.getPlatform();
+		final boolean isPlatformAsync = isPlatformAsync(platform);
+
+		if (isPlatformAsync) {
+			CompletableFuture.runAsync(() -> handleReceiveMessage(receiveMessage));
+		} else {
+			handleReceiveMessage(receiveMessage);
+		}
 	}
 }

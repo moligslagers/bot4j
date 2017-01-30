@@ -10,14 +10,24 @@ package ai.nitro.bot4j.middle.domain.receive.payload;
 
 public class TextReceivePayload extends AbstractReceivePayload {
 
+	protected NlpContext nlpContext;
+
 	protected String text;
 
 	public TextReceivePayload() {
 		super(Type.TEXT);
 	}
 
+	public NlpContext getNlpContext() {
+		return nlpContext;
+	}
+
 	public String getText() {
 		return text;
+	}
+
+	public void setNlpContext(final NlpContext nlpContext) {
+		this.nlpContext = nlpContext;
 	}
 
 	public void setText(final String text) {
