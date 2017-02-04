@@ -4,7 +4,7 @@ bot4j
 [![Build](https://img.shields.io/travis/nitro-code/bot4j.svg)](https://travis-ci.org/nitro-code/bot4j)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-This is a bot framework for Java, which enables the development of lightweight messenger bots (a.k.a. chatbots) with Java. It provides integrations for Facebook Messenger, Slack and Telegram and internally unifies message formats by a messaging middleware.
+This is a bot framework for Java, which enables the development of lightweight messenger bots (a.k.a. chatbots) with Java. It provides integrations for Facebook Messenger, Slack, Telegram and Alexa and internally unifies message formats by a messaging middleware.
 
 The framework is work in progress, however has been applied in several bot development projects.
 
@@ -41,7 +41,7 @@ To include bot4j in your Maven project edit your `pom.xml` file as follows
 Messenger Integration
 ---------------------
 
-The bot4j framework provides webhooks for receiving messages from Facebook (`FacebookWebhook`), Slack (`SlackEventWebhook`, `SlackActionWebhook` and `SlackOAuthWebhook`) and Telegram (`TelegramWebhook`). Bots can send messages to Facebook, Slack and Telegram, if authentication parameters are set in `facebook.properties`, `slack.properties` and `telegram.properties`.
+The bot4j framework provides webhooks for receiving messages from Facebook (`FacebookWebhook`), Slack (`SlackEventWebhook`, `SlackActionWebhook` and `SlackOAuthWebhook`), Telegram (`TelegramWebhook`) and Alexa (`AlexaWebhook`). Bots can send messages to Facebook, Slack and Telegram, if authentication parameters are set in `facebook.properties`, `slack.properties` and `telegram.properties`.
 
 Additional messenger integrations are in the works.
 
