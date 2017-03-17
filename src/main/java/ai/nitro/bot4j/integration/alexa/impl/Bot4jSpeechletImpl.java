@@ -6,7 +6,7 @@
  * of the BSD 3-clause license. See the LICENSE file for details.
  */
 
-package ai.nitro.bot4j.integration.alexa;
+package ai.nitro.bot4j.integration.alexa.impl;
 
 import java.util.Map.Entry;
 
@@ -23,10 +23,10 @@ import com.amazon.speech.speechlet.LaunchRequest;
 import com.amazon.speech.speechlet.SessionEndedRequest;
 import com.amazon.speech.speechlet.SessionStartedRequest;
 import com.amazon.speech.speechlet.SpeechletResponse;
-import com.amazon.speech.speechlet.SpeechletV2;
 import com.amazon.speech.speechlet.User;
 import com.amazon.speech.ui.PlainTextOutputSpeech;
 
+import ai.nitro.bot4j.integration.alexa.Bot4jSpeechlet;
 import ai.nitro.bot4j.integration.alexa.domain.AlexaPlatformEnum;
 import ai.nitro.bot4j.integration.alexa.send.AlexaMessageSender;
 import ai.nitro.bot4j.middle.domain.Participant;
@@ -35,9 +35,9 @@ import ai.nitro.bot4j.middle.domain.receive.payload.NlpContext;
 import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.receive.MessageReceiver;
 
-public class Bot4jSpeechlet implements SpeechletV2 {
+public class Bot4jSpeechletImpl implements Bot4jSpeechlet {
 
-	private static final Logger LOG = LogManager.getLogger(Bot4jSpeechlet.class);
+	private static final Logger LOG = LogManager.getLogger(Bot4jSpeechletImpl.class);
 
 	@Inject
 	protected AlexaMessageSender alexaMessageSender;

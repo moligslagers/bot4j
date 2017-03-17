@@ -10,6 +10,7 @@ package ai.nitro.bot4j.integration.alexa;
 
 import com.google.inject.AbstractModule;
 
+import ai.nitro.bot4j.integration.alexa.impl.Bot4jSpeechletImpl;
 import ai.nitro.bot4j.integration.alexa.receive.AlexaReceiveHandler;
 import ai.nitro.bot4j.integration.alexa.receive.impl.AlexaReceiveHandlerImpl;
 import ai.nitro.bot4j.integration.alexa.receive.webhook.AlexaWebhook;
@@ -24,8 +25,7 @@ public class AlexaModule extends AbstractModule {
 		bind(AlexaReceiveHandler.class).to(AlexaReceiveHandlerImpl.class);
 		bind(AlexaMessageSender.class).to(AlexaMessageSenderImpl.class);
 		bind(AlexaWebhook.class).to(AlexaWebhookImpl.class);
-
-		bind(Bot4jSpeechlet.class);
+		bind(Bot4jSpeechlet.class).to(Bot4jSpeechletImpl.class);
 	}
-
 }
+	

@@ -42,6 +42,7 @@ public class AlexaMessageSenderImpl implements AlexaMessageSender {
 	@Override
 	public String getText() {
 		final String result = threadLocalText.get().toString();
+		threadLocalText.remove();
 		return result;
 	}
 
