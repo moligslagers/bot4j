@@ -16,6 +16,8 @@ import javax.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.restfb.exception.FacebookOAuthException;
+
 import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.Platform;
 import ai.nitro.bot4j.middle.domain.send.SendMessage;
@@ -70,6 +72,9 @@ public class MessageSenderImpl implements MessageSender {
 			} else {
 				platformMessageSender.send(sendMessage);
 			}
+		} catch (final FacebookOAuthException e) {
+			LOG.info("Could not send fb message: {}", e.getMessage());
+			result = false;
 		} catch (final Exception e) {
 			LOG.error(e.getMessage(), e);
 			result = false;
