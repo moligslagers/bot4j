@@ -35,6 +35,7 @@ public class FacebookReceivePayloadFactoryImpl implements FacebookReceivePayload
 	@Override
 	public DeliveryNotificationReceivePayload createDeliveryNotification(final DeliveryItem deliveryItem) {
 		final DeliveryNotificationReceivePayload result = new DeliveryNotificationReceivePayload();
+		result.setWatermark(deliveryItem.getWatermark());
 		result.setMessageIds(deliveryItem.getMids());
 		return result;
 	}

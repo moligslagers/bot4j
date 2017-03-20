@@ -15,6 +15,8 @@ public class DeliveryNotificationReceivePayload extends AbstractReceivePayload {
 
 	protected List<String> messageIds = new ArrayList<String>();
 
+	protected String watermark;
+
 	public DeliveryNotificationReceivePayload() {
 		super(Type.DELIVERY_NOTIFICATION);
 	}
@@ -23,8 +25,16 @@ public class DeliveryNotificationReceivePayload extends AbstractReceivePayload {
 		return messageIds;
 	}
 
+	public String getWatermark() {
+		return watermark;
+	}
+
 	public void setMessageIds(final List<String> messageIds) {
 		this.messageIds = messageIds;
+	}
+
+	public void setWatermark(final String watermark) {
+		this.watermark = watermark;
 	}
 
 }
