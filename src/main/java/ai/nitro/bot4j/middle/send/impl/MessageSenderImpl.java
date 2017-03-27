@@ -73,7 +73,7 @@ public class MessageSenderImpl implements MessageSender {
 				platformMessageSender.send(sendMessage);
 			}
 		} catch (final FacebookOAuthException e) {
-			LOG.info("Could not send fb message: {}", e.getMessage());
+			LOG.warn("Could not send fb message: {}", e.getMessage());
 			result = false;
 		} catch (final Exception e) {
 			LOG.error(e.getMessage(), e);
