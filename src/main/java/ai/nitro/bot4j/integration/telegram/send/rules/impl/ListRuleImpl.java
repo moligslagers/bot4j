@@ -76,18 +76,10 @@ public class ListRuleImpl extends AbstractTelegramSendRuleImpl {
 	}
 
 	protected void sendListElement(final String recipient, final ListSendElement listSendElement) {
-		if (!Strings.isBlank(listSendElement.getTitle())) {
+		if (!Strings.isBlank(listSendElement.getTitle()) && listSendElement.getButton() == null) {
 			final String title = "*" + listSendElement.getTitle() + "*";
 			final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
 					recipient, title).parseMode(ParseMode.Markdown);
-
-			super.execute(sendMessageTelegram, recipient);
-		}
-
-		if (!Strings.isBlank(listSendElement.getSubTitle())) {
-			final String subTitle = listSendElement.getSubTitle();
-			final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
-					recipient, subTitle);
 
 			super.execute(sendMessageTelegram, recipient);
 		}
@@ -98,6 +90,14 @@ public class ListRuleImpl extends AbstractTelegramSendRuleImpl {
 
 		if (listSendElement.getButton() != null) {
 			sendButtonElement(recipient, listSendElement);
+		}
+
+		if (!Strings.isBlank(listSendElement.getSubTitle())) {
+			final String subTitle = listSendElement.getSubTitle();
+			final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
+					recipient, subTitle);
+
+			super.execute(sendMessageTelegram, recipient);
 		}
 	}
 
