@@ -110,7 +110,7 @@ public class Bot4jSpeechletImpl implements Bot4jSpeechlet {
 	}
 
 	@Override
-	public SpeechletResponse onLaunch(final SpeechletRequestEnvelope<LaunchRequest> arg0) {
+	public SpeechletResponse onLaunch(final SpeechletRequestEnvelope<LaunchRequest> requestEnvelope) {
 		return null;
 	}
 

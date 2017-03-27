@@ -32,6 +32,7 @@ import ai.nitro.bot4j.integration.telegram.send.rules.TelegramSendRule;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.BubbleRuleImpl;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.ButtonsRuleImpl;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.ImageRuleImpl;
+import ai.nitro.bot4j.integration.telegram.send.rules.impl.ListRuleImpl;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.NativeRuleImpl;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.TextRuleImpl;
 import ai.nitro.bot4j.integration.telegram.send.rules.impl.VideoRuleImpl;
@@ -55,6 +56,7 @@ public class TelegramModule extends AbstractModule {
 		telegramSendRuleBinder.addBinding().to(BubbleRuleImpl.class);
 		telegramSendRuleBinder.addBinding().to(ButtonsRuleImpl.class);
 		telegramSendRuleBinder.addBinding().to(ImageRuleImpl.class);
+		telegramSendRuleBinder.addBinding().to(ListRuleImpl.class);
 		telegramSendRuleBinder.addBinding().to(NativeRuleImpl.class);
 		telegramSendRuleBinder.addBinding().to(TextRuleImpl.class);
 		telegramSendRuleBinder.addBinding().to(VideoRuleImpl.class);

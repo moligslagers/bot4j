@@ -17,6 +17,7 @@ import org.apache.logging.log4j.util.Strings;
 
 import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
 import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
+import com.pengrad.telegrambot.model.request.ParseMode;
 
 import ai.nitro.bot4j.integration.telegram.send.TelegramSendInlineKeyboardFactory;
 import ai.nitro.bot4j.middle.domain.send.SendMessage;
@@ -37,7 +38,6 @@ public class ButtonsRuleImpl extends AbstractTelegramSendRuleImpl {
 	@Override
 	public void apply(final SendMessage sendMessage) {
 		final ButtonsSendPayload buttonsSendPayload = sendMessage.getPayloadWithType(ButtonsSendPayload.class);
-
 		final List<InlineKeyboardButton> buttonList = new ArrayList<InlineKeyboardButton>();
 
 		for (final AbstractSendButton button : buttonsSendPayload.getButtons()) {
@@ -54,10 +54,11 @@ public class ButtonsRuleImpl extends AbstractTelegramSendRuleImpl {
 			title = "undefined title of buttonSendPayload";
 		}
 
+		final String boldTitle = "*" + title + "*";
 		final String recipient = sendMessage.getRecipient().getId();
 
 		final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
-				recipient, title).replyMarkup(inlineKeyboardMarkup);
+				recipient, boldTitle).replyMarkup(inlineKeyboardMarkup).parseMode(ParseMode.Markdown);
 		super.execute(sendMessageTelegram, recipient);
 	}
 

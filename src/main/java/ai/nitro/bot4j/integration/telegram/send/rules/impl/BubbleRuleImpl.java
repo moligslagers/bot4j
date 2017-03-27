@@ -18,6 +18,7 @@ import org.apache.logging.log4j.util.Strings;
 
 import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
 import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
+import com.pengrad.telegrambot.model.request.ParseMode;
 
 import ai.nitro.bot4j.integration.telegram.send.TelegramSendInlineKeyboardFactory;
 import ai.nitro.bot4j.middle.domain.send.SendMessage;
@@ -51,7 +52,7 @@ public class BubbleRuleImpl extends AbstractTelegramSendRuleImpl {
 		final String recipient = sendMessage.getRecipient().getId();
 
 		final com.pengrad.telegrambot.request.SendMessage sendMessageTelegram = new com.pengrad.telegrambot.request.SendMessage(
-				recipient, displayText).replyMarkup(inlineKeyboardMarkup);
+				recipient, displayText).replyMarkup(inlineKeyboardMarkup).parseMode(ParseMode.Markdown);
 
 		super.execute(sendMessageTelegram, recipient);
 	}
@@ -74,8 +75,10 @@ public class BubbleRuleImpl extends AbstractTelegramSendRuleImpl {
 			title = "undefined title of bubble";
 		}
 
+		final String boldTitle = "*" + title + "*";
+
 		final StringBuilder stringBuilder = new StringBuilder();
-		final String result = stringBuilder.append(StringUtils.defaultString(title)).append(" ")
+		final String result = stringBuilder.append(StringUtils.defaultString(boldTitle)).append(" ")
 				.append(StringUtils.defaultString(text)).toString();
 		return result;
 	}
