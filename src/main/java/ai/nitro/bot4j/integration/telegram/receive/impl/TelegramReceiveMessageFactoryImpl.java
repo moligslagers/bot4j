@@ -32,6 +32,8 @@ import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
 
 public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessageFactory {
 
+	private static final String GET_STARTED = "GET_STARTED";
+
 	final static Logger LOG = LogManager.getLogger(TelegramReceiveMessageFactoryImpl.class);
 
 	@Inject
@@ -88,7 +90,11 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 		}
 
 		if (!Strings.isBlank(message.text())) {
-			handleText(message.text(), result);
+			if ("/start".equals(message.text())) {
+				handleStartMessage(message.text(), result);
+			} else {
+				handleText(message.text(), result);
+			}
 		}
 
 		if (message.video() != null) {
@@ -116,6 +122,13 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 		participant.setPlatform(TelegramPlatformEnum.TELEGRAM);
 		participant.setId(String.valueOf(sender));
 		result.setSender(participant);
+	}
+
+	private void handleStartMessage(final String text, final ReceiveMessage result) {
+		final PostbackReceivePayload postbackReceivePayload = new PostbackReceivePayload();
+		postbackReceivePayload.setName(GET_STARTED);
+
+		result.addPayload(postbackReceivePayload);
 	}
 
 	protected void handleSticker(final Sticker sticker, final ReceiveMessage result) {
