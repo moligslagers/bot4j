@@ -8,10 +8,12 @@
 
 package ai.nitro.bot4j.integration.alexa.receive.webhook;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public interface AlexaWebhook {
 
-	String post(HttpServletRequest req, HttpServletResponse res);
+	String post(HttpServletRequest req, HttpServletResponse res) throws IOException;
 }
