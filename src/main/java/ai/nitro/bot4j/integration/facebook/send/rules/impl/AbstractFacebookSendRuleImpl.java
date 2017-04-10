@@ -45,7 +45,7 @@ public abstract class AbstractFacebookSendRuleImpl implements FacebookSendRule {
 	}
 
 	protected void publish(final Message message, final IdMessageRecipient recipient) {
-		LOG.info("sending to {} message {}", recipient, message);
+		LOG.info("sending message to {}", recipient);
 
 		final Parameter recipientParam = Parameter.with("recipient", recipient);
 		final Parameter messageParam = Parameter.with("message", message);
