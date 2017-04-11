@@ -30,4 +30,8 @@ public class Participant {
 		this.platform = platform;
 	}
 
+	@Override
+	public String toString() {
+		return "id=[" + id + "], platform=[" + platform + "]";
+	}
 }
