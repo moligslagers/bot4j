@@ -18,6 +18,7 @@ import com.restfb.types.webhook.messaging.QuickReplyItem;
 import com.restfb.types.webhook.messaging.ReadItem;
 
 import ai.nitro.bot4j.integration.facebook.receive.FacebookReceivePayloadFactory;
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.DeliveryNotificationReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.QuickReplyReceivePayload;
@@ -31,6 +32,15 @@ public class FacebookReceivePayloadFactoryImpl implements FacebookReceivePayload
 
 	@Inject
 	protected PostbackPayloadService postbackPayloadService;
+
+	@Override
+	public CoordinateReceivePayload createCoordinationAttachment(final MessagingAttachment messagingAttachment) {
+		final CoordinateReceivePayload result = new CoordinateReceivePayload();
+		result.setLatVal(messagingAttachment.getPayload().getCoordinates().getLat());
+		result.setLonVal(messagingAttachment.getPayload().getCoordinates().getLongVal());
+
+		return result;
+	}
 
 	@Override
 	public DeliveryNotificationReceivePayload createDeliveryNotification(final DeliveryItem deliveryItem) {

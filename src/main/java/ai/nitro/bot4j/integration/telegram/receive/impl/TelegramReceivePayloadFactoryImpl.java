@@ -15,6 +15,7 @@ import com.pengrad.telegrambot.model.Audio;
 import com.pengrad.telegrambot.model.CallbackQuery;
 import com.pengrad.telegrambot.model.Document;
 import com.pengrad.telegrambot.model.File;
+import com.pengrad.telegrambot.model.Location;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.PhotoSize;
 import com.pengrad.telegrambot.model.Sticker;
@@ -24,6 +25,7 @@ import com.pengrad.telegrambot.request.GetFile;
 import com.pengrad.telegrambot.response.GetFileResponse;
 
 import ai.nitro.bot4j.integration.telegram.receive.TelegramReceivePayloadFactory;
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
@@ -141,11 +143,24 @@ public class TelegramReceivePayloadFactoryImpl implements TelegramReceivePayload
 		return urlAttachmentReceivePayload;
 	}
 
+	@Override
+	public CoordinateReceivePayload getCoordinationPayload(final Location location) {
+		final double latVal = location.latitude();
+		final double lonVal = location.longitude();
+
+		final CoordinateReceivePayload result = new CoordinateReceivePayload();
+		result.setLatVal(latVal);
+		result.setLonVal(lonVal);
+
+		return result;
+	}
+
 	protected String getFileUrl(final String fileId) {
 		final GetFile getFile = new GetFile(fileId);
 		final GetFileResponse response = bot.execute(getFile);
 		final File file = response.file();
 		final String url = bot.getFullFilePath(file);
+
 		return url;
 	}
 

@@ -26,6 +26,7 @@ import ai.nitro.bot4j.integration.facebook.receive.FacebookReceiveMessageFactory
 import ai.nitro.bot4j.integration.facebook.receive.FacebookReceivePayloadFactory;
 import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.DeliveryNotificationReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.QuickReplyReceivePayload;
@@ -34,6 +35,8 @@ import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
 
 public class FacebookReceiveMessageFactoryImpl implements FacebookReceiveMessageFactory {
+
+	private static final String LOCATION = "location";
 
 	@Inject
 	protected FacebookReceivePayloadFactory facebookReceivePayloadFactory;
@@ -91,9 +94,16 @@ public class FacebookReceiveMessageFactoryImpl implements FacebookReceiveMessage
 
 	protected void handleMessagingAttachment(final ReceiveMessage result,
 			final MessagingAttachment messagingAttachment) {
-		final UrlAttachmentReceivePayload urlAttachment = facebookReceivePayloadFactory
-				.createUrlAttachment(messagingAttachment);
-		result.addPayload(urlAttachment);
+
+		if (LOCATION.equals(messagingAttachment.getType())) {
+			final CoordinateReceivePayload coordinationReceivePayload = facebookReceivePayloadFactory
+					.createCoordinationAttachment(messagingAttachment);
+			result.addPayload(coordinationReceivePayload);
+		} else {
+			final UrlAttachmentReceivePayload urlAttachment = facebookReceivePayloadFactory
+					.createUrlAttachment(messagingAttachment);
+			result.addPayload(urlAttachment);
+		}
 	}
 
 	protected void handlePostbackItem(final PostbackItem postbackItem, final ReceiveMessage result) {

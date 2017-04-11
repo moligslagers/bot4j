@@ -11,7 +11,7 @@ package ai.nitro.bot4j.middle.domain.receive.payload;
 public abstract class AbstractReceivePayload {
 
 	public enum Type {
-		DELIVERY_NOTIFICATION, POSTBACK, QUICK_REPLY, READ_NOTIFICATION, TEXT, URL_ATTACHMENT
+		COORDINATE, DELIVERY_NOTIFICATION, POSTBACK, QUICK_REPLY, READ_NOTIFICATION, TEXT, URL_ATTACHMENT
 	}
 
 	protected final Type type;

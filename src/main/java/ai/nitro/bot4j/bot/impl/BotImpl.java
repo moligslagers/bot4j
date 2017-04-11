@@ -15,6 +15,7 @@ import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
 import ai.nitro.bot4j.middle.domain.receive.payload.AbstractReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.AbstractReceivePayload.Type;
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.DeliveryNotificationReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.QuickReplyReceivePayload;
@@ -32,6 +33,10 @@ public class BotImpl implements Bot {
 
 	@Inject
 	protected MessageSender messageSender;
+
+	protected void onCoordinate(final CoordinateReceivePayload payload, final Participant sender) throws Exception {
+
+	}
 
 	@Override
 	public void onMessage(final ReceiveMessage message) throws Exception {
@@ -55,6 +60,9 @@ public class BotImpl implements Bot {
 		final Type type = payload.getType();
 
 		switch (type) {
+		case COORDINATE:
+			onCoordinate((CoordinateReceivePayload) payload, sender);
+			break;
 		case DELIVERY_NOTIFICATION:
 			onReceiveDeliveryNotification((DeliveryNotificationReceivePayload) payload, sender);
 			break;

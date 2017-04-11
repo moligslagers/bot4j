@@ -16,6 +16,7 @@ import org.apache.logging.log4j.util.Strings;
 
 import com.pengrad.telegrambot.model.Audio;
 import com.pengrad.telegrambot.model.CallbackQuery;
+import com.pengrad.telegrambot.model.Location;
 import com.pengrad.telegrambot.model.Message;
 import com.pengrad.telegrambot.model.Sticker;
 import com.pengrad.telegrambot.model.Update;
@@ -26,6 +27,7 @@ import ai.nitro.bot4j.integration.telegram.receive.TelegramReceiveMessageFactory
 import ai.nitro.bot4j.integration.telegram.receive.TelegramReceivePayloadFactory;
 import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
@@ -69,6 +71,12 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 		result.addPayload(urlAttachmentReceivePayload);
 	}
 
+	protected void handleLocation(final Location location, final ReceiveMessage result) {
+		final CoordinateReceivePayload coordinationReceivePayload = telegramReceivePayloadFactory
+				.getCoordinationPayload(location);
+		result.addPayload(coordinationReceivePayload);
+	}
+
 	protected void handleMessage(final Message message, final ReceiveMessage result) {
 		final String messageId = String.valueOf(message.messageId());
 		result.setMessageId(messageId);
@@ -79,6 +87,10 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 
 		if (message.document() != null) {
 			handleDocument(message, result);
+		}
+
+		if (message.location() != null) {
+			handleLocation(message.location(), result);
 		}
 
 		if (message.photo() != null) {
@@ -124,7 +136,7 @@ public class TelegramReceiveMessageFactoryImpl implements TelegramReceiveMessage
 		result.setSender(participant);
 	}
 
-	private void handleStartMessage(final String text, final ReceiveMessage result) {
+	protected void handleStartMessage(final String text, final ReceiveMessage result) {
 		final PostbackReceivePayload postbackReceivePayload = new PostbackReceivePayload();
 		postbackReceivePayload.setName(GET_STARTED);
 

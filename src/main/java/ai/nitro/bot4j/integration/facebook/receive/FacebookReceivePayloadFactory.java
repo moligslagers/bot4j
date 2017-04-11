@@ -14,6 +14,7 @@ import com.restfb.types.webhook.messaging.PostbackItem;
 import com.restfb.types.webhook.messaging.QuickReplyItem;
 import com.restfb.types.webhook.messaging.ReadItem;
 
+import ai.nitro.bot4j.middle.domain.receive.payload.CoordinateReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.DeliveryNotificationReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.PostbackReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.QuickReplyReceivePayload;
@@ -22,6 +23,8 @@ import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.domain.receive.payload.UrlAttachmentReceivePayload;
 
 public interface FacebookReceivePayloadFactory {
+
+	CoordinateReceivePayload createCoordinationAttachment(MessagingAttachment messagingAttachment);
 
 	DeliveryNotificationReceivePayload createDeliveryNotification(DeliveryItem deliveryItem);
 
