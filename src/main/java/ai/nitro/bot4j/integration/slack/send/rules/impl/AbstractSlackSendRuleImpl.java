@@ -68,4 +68,9 @@ public abstract class AbstractSlackSendRuleImpl implements SlackSendRule {
 		final boolean result = payload != null && type.equals(payload.getType());
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 }

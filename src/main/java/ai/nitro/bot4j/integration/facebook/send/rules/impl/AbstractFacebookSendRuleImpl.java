@@ -61,4 +61,9 @@ public abstract class AbstractFacebookSendRuleImpl implements FacebookSendRule {
 
 		facebookClient.publish("me/messages", SendResponse.class, recipientParam, senderActionParam);
 	}
+
+	@Override
+	public String toString() {
+		return getClass().getSimpleName();
+	}
 }
