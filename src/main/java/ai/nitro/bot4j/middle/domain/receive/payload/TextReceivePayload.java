@@ -8,6 +8,8 @@
 
 package ai.nitro.bot4j.middle.domain.receive.payload;
 
+import ai.nitro.bot4j.middle.domain.receive.nlp.NlpContext;
+
 public class TextReceivePayload extends AbstractReceivePayload {
 
 	protected NlpContext nlpContext;

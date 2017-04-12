@@ -21,4 +21,5 @@ public interface Bot4jSpeechlet extends SpeechletV2 {
 
 	@Override
 	void onSessionStarted(SpeechletRequestEnvelope<SessionStartedRequest> arg0);
+
 }

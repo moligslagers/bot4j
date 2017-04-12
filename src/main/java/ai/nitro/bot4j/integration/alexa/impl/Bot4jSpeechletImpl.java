@@ -31,7 +31,8 @@ import ai.nitro.bot4j.integration.alexa.domain.AlexaPlatformEnum;
 import ai.nitro.bot4j.integration.alexa.send.AlexaMessageSender;
 import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
-import ai.nitro.bot4j.middle.domain.receive.payload.NlpContext;
+import ai.nitro.bot4j.middle.domain.receive.nlp.NlpContext;
+import ai.nitro.bot4j.middle.domain.receive.nlp.impl.NlpContextImpl;
 import ai.nitro.bot4j.middle.domain.receive.payload.TextReceivePayload;
 import ai.nitro.bot4j.middle.receive.MessageReceiver;
 
@@ -46,7 +47,8 @@ public class Bot4jSpeechletImpl implements Bot4jSpeechlet {
 	protected MessageReceiver messageReceiver;
 
 	protected NlpContext createNlpContext(final Intent intent) {
-		final NlpContext nlpContext = new NlpContext();
+		final NlpContext nlpContext = new NlpContextImpl();
+		nlpContext.setConfidence(1.0);
 
 		final String intentName = intent.getName();
 		nlpContext.setIntent(intentName);
