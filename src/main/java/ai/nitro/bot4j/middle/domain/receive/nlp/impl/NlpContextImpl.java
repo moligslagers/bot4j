@@ -65,4 +65,9 @@ public class NlpContextImpl implements NlpContext {
 	public void setNamedEntities(final Map<String, List<String>> namedEntities) {
 		this.namedEntities = namedEntities;
 	}
+
+	@Override
+	public String toString() {
+		return "intent=[" + intent + "], confidence=[" + confidence + "]";
+	}
 }
