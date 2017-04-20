@@ -12,18 +12,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ai.nitro.bot4j.middle.domain.AbstractMessage;
+import ai.nitro.bot4j.middle.domain.Session;
 import ai.nitro.bot4j.middle.domain.receive.payload.AbstractReceivePayload;
 
 public class ReceiveMessage extends AbstractMessage {
 
 	protected List<AbstractReceivePayload> payloads = new ArrayList<AbstractReceivePayload>();
 
+	protected Session session;
+
 	public void addPayload(final AbstractReceivePayload payload) {
+		payload.setReceiveMessage(this);
 		payloads.add(payload);
 	}
 
 	public void addPayloads(final List<AbstractReceivePayload> payloads) {
-		this.payloads.addAll(payloads);
+		for (final AbstractReceivePayload payload : payloads) {
+			addPayload(payload);
+		}
 	}
 
 	public List<AbstractReceivePayload> getPayloads() {
@@ -41,6 +47,14 @@ public class ReceiveMessage extends AbstractMessage {
 		}
 
 		return result;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(final Session session) {
+		this.session = session;
 	}
 
 	@Override

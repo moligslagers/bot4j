@@ -24,8 +24,10 @@ import ai.nitro.bot4j.middle.payload.PostbackPayloadService;
 import ai.nitro.bot4j.middle.payload.impl.PostbackPayloadServiceImpl;
 import ai.nitro.bot4j.middle.receive.DuplicateMessageFilter;
 import ai.nitro.bot4j.middle.receive.MessageReceiver;
+import ai.nitro.bot4j.middle.receive.SessionManager;
 import ai.nitro.bot4j.middle.receive.impl.DuplicateMessageFilterImpl;
 import ai.nitro.bot4j.middle.receive.impl.MessageReceiverImpl;
+import ai.nitro.bot4j.middle.receive.impl.SessionManagerImpl;
 import ai.nitro.bot4j.middle.send.MessageSender;
 import ai.nitro.bot4j.middle.send.PlatformMessageSender;
 import ai.nitro.bot4j.middle.send.impl.MessageSenderImpl;
@@ -38,6 +40,7 @@ public class MiddlewareModule extends AbstractModule {
 		bind(MessageReceiver.class).to(MessageReceiverImpl.class);
 		bind(MessageSender.class).to(MessageSenderImpl.class);
 		bind(PostbackPayloadService.class).to(PostbackPayloadServiceImpl.class);
+		bind(SessionManager.class).to(SessionManagerImpl.class);
 
 		final MapBinder<Platform, PlatformMessageSender> platformMessageSenderBinder = MapBinder.newMapBinder(binder(),
 				Platform.class, PlatformMessageSender.class);

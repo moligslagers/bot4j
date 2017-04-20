@@ -8,11 +8,15 @@
 
 package ai.nitro.bot4j.middle.domain.receive.payload;
 
+import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
+
 public abstract class AbstractReceivePayload {
 
 	public enum Type {
 		COORDINATE, DELIVERY_NOTIFICATION, POSTBACK, QUICK_REPLY, READ_NOTIFICATION, TEXT, URL_ATTACHMENT
 	}
+
+	protected ReceiveMessage receiveMessage;
 
 	protected final Type type;
 
@@ -20,8 +24,16 @@ public abstract class AbstractReceivePayload {
 		this.type = type;
 	}
 
+	public ReceiveMessage getReceiveMessage() {
+		return receiveMessage;
+	}
+
 	public Type getType() {
 		return type;
+	}
+
+	public void setReceiveMessage(final ReceiveMessage receiveMessage) {
+		this.receiveMessage = receiveMessage;
 	}
 
 }

@@ -21,53 +21,10 @@ import ai.nitro.bot4j.middle.domain.Participant;
 import ai.nitro.bot4j.middle.domain.Platform;
 import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
 import ai.nitro.bot4j.middle.receive.DuplicateMessageFilter;
+import ai.nitro.bot4j.middle.receive.key.MessageKey;
 
 @Singleton
 public class DuplicateMessageFilterImpl implements DuplicateMessageFilter {
-
-	public class MessageKey {
-
-		protected final String messageId;
-
-		protected final Platform platform;
-
-		public MessageKey(final Platform platform, final String messageId) {
-			this.platform = platform;
-			this.messageId = messageId;
-		}
-
-		@Override
-		public boolean equals(final Object obj) {
-			final boolean result;
-
-			if (this == obj) {
-				result = true;
-			} else if (obj == null) {
-				result = false;
-			} else if (getClass() != obj.getClass()) {
-				result = false;
-			} else {
-				final MessageKey other = (MessageKey) obj;
-
-				if (!platform.equals(other.platform)) {
-					result = false;
-				} else if (!messageId.equals(other.messageId)) {
-					result = false;
-				} else {
-					result = true;
-				}
-			}
-
-			return result;
-		}
-
-		@Override
-		public int hashCode() {
-			final int result = messageId.hashCode() + platform.hashCode();
-			return result;
-		}
-
-	}
 
 	protected final Cache<MessageKey, Boolean> messageCache = CacheBuilder.newBuilder()
 			.expireAfterWrite(5, TimeUnit.MINUTES).build();
@@ -92,6 +49,7 @@ public class DuplicateMessageFilterImpl implements DuplicateMessageFilter {
 				final Platform platform = sender.getPlatform();
 				final MessageKey key = new MessageKey(platform, messageId);
 				final Boolean isPresent = messageCache.getIfPresent(key);
+
 				messageCache.put(key, true);
 				result = isPresent != null;
 			}
