@@ -15,7 +15,6 @@ import ai.nitro.bot4j.integration.facebook.FacebookModule;
 import ai.nitro.bot4j.integration.slack.SlackModule;
 import ai.nitro.bot4j.integration.telegram.TelegramModule;
 import ai.nitro.bot4j.middle.MiddlewareModule;
-import ai.nitro.bot4j.template.TemplateModule;
 
 public class Bot4jModule extends AbstractModule {
 
@@ -27,6 +26,5 @@ public class Bot4jModule extends AbstractModule {
 		install(new AlexaModule());
 
 		install(new MiddlewareModule());
-		install(new TemplateModule());
 	}
 }
