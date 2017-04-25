@@ -33,7 +33,6 @@ public class SendMessage extends AbstractMessage {
 	}
 
 	public void setPayload(final AbstractSendPayload payload) {
-		payload.setSendMessage(this);
 		this.payload = payload;
 	}
 
