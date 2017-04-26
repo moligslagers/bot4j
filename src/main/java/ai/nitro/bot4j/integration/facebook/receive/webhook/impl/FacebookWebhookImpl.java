@@ -92,6 +92,8 @@ public class FacebookWebhookImpl implements FacebookWebhook {
 	public String post(final HttpServletRequest req, final HttpServletResponse res) {
 		final String result = "";
 
+		Long botId = Long.parseLong(req.getParameter("bot_id"));
+
 
 		try {
 			final String body = CharStreams.toString(req.getReader());
@@ -99,7 +101,7 @@ public class FacebookWebhookImpl implements FacebookWebhook {
 			final WebhookObject webhookObject = mapper.toJavaObject(body, WebhookObject.class);
 
 			for (final WebhookEntry webhookEntry : webhookObject.getEntryList()) {
-				handleWebhookEntry(webhookEntry, (long)0);
+				handleWebhookEntry(webhookEntry, botId);
 			}
 		} catch (final Exception e) {
 			handleException(e);

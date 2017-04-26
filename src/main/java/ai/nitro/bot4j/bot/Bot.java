@@ -13,6 +13,6 @@ import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
 public interface Bot {
 
 
-	void onMessage(ReceiveMessage receiveMessage) throws Exception;
+	void onMessage(ReceiveMessage receiveMessage, Long botId) throws Exception;
 
 }

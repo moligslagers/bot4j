@@ -26,7 +26,7 @@ public class MessageSenderTest extends TestBase {
 	@Test
 	public void testSendWithoutPlatform() throws Exception {
 		final SendMessage sendMessage = new SendMessage();
-		final boolean result = messageSender.send(sendMessage);
+		final boolean result = messageSender.send(sendMessage, null);
 		assertFalse(result);
 	}
 }

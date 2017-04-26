@@ -24,7 +24,7 @@ public class ImageRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final ImageSendPayload imageSendPayload = sendMessage.getPayloadWithType(ImageSendPayload.class);
 
 		final MediaAttachment.Type type = MediaAttachment.Type.IMAGE;
@@ -34,7 +34,7 @@ public class ImageRuleImpl extends AbstractFacebookSendRuleImpl {
 		final Message message = new Message(mediaAttachment);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 }

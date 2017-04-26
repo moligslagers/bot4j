@@ -21,6 +21,18 @@ public class BotSendPayload {
         return botType;
     }
 
+    public FacebookSpecPayload getFacebookSpec() {
+        return facebookSpec;
+    }
+
+    public SlackSpecPayload getSlackSpecPayload() {
+        return slackSpecPayload;
+    }
+
+    public TelegramSpecPayload getTelegramSpecPayload() {
+        return telegramSpecPayload;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }

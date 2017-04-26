@@ -4,6 +4,9 @@ import ai.nitro.bot4j.bot.Bot;
 import ai.nitro.bot4j.bot.impl.BotImpl;
 import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
 import com.google.inject.Injector;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Version;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -16,18 +19,17 @@ import java.util.Map;
 @Singleton
 public class StafefulBotProviderServiceImpl implements StatefulBotProviderService{
 
+
     @Inject
     Injector injector;
 
     protected Map<Long, Bot> bots = new HashMap<>();
 
-    protected Map<String, Class<? extends Bot>> botTypes = new HashMap<>();
+    protected Map<String, Class<? extends BotImpl>> botTypes = new HashMap<>();
 
-    @Override
-    public void putBot(Long botId, String botType){
-        Bot bot = injector.getInstance(botTypes.get(botType));
-        bots.put(botId, bot);
-    }
+    protected Map<Long, FacebookClient> facebookClients = new HashMap<>();
+
+
 
     @Override
     public Bot getBot(Long botId){
@@ -40,7 +42,31 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
     }
 
     @Override
-    public void registerBot(Class<? extends Bot> botClass, String botType) {
+    public FacebookClient getFacebookClient(Long botId){
+        return facebookClients.get(botId);
+    }
+
+    @Override
+    public Map<Long, FacebookClient> getFacebookClients() {
+        return this.facebookClients;
+    }
+
+    @Override
+    public void putBot(Long botId, String botType){
+        BotImpl bot = injector.getInstance(botTypes.get(botType));
+        bot.setBotId(botId);
+        bots.put(botId, bot);
+    }
+
+    @Override
+    public void putFacebookClient(Long botId, String accessToken){
+        DefaultFacebookClient defaultFacebookClient = new DefaultFacebookClient(accessToken,
+                Version.VERSION_2_8);
+        facebookClients.put(botId, defaultFacebookClient);
+    }
+
+    @Override
+    public void registerBot(Class<? extends BotImpl> botClass, String botType) {
         botTypes.put(botType, botClass);
     }
 }

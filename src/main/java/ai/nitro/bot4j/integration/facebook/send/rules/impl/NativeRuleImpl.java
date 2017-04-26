@@ -23,10 +23,10 @@ public class NativeRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final Message message = (Message) sendMessage.getNativePayload(FacebookPlatformEnum.FACEBOOK);
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 }

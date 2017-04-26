@@ -51,7 +51,7 @@ public class MessageReceiverImpl implements MessageReceiver {
 				LOG.info("ignoring duplicate message {}", receiveMessage);
 			} else {
 				Bot bot = botProviderService.getBot(botId);
-				bot.onMessage(receiveMessage);
+				bot.onMessage(receiveMessage, botId);
 			}
 		} catch (final Exception e) {
 			LOG.error(e.getMessage(), e);

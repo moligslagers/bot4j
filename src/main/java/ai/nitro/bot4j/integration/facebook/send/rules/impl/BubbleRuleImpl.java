@@ -33,7 +33,7 @@ public class BubbleRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final GenericTemplatePayload payload = new GenericTemplatePayload();
 
 		final BubbleSendPayload bubbleSendPayload = sendMessage.getPayloadWithType(BubbleSendPayload.class);
@@ -46,7 +46,7 @@ public class BubbleRuleImpl extends AbstractFacebookSendRuleImpl {
 		final Message message = new Message(templateAttachment);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 	protected com.restfb.types.send.Bubble createBubble(final Bubble bubbleSendPayload) {

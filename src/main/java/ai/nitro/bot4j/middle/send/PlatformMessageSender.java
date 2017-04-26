@@ -16,4 +16,6 @@ public interface PlatformMessageSender {
 	Platform getPlatform();
 
 	boolean send(SendMessage sendMessage);
+
+	boolean send(SendMessage sendMessage, Long botId);
 }

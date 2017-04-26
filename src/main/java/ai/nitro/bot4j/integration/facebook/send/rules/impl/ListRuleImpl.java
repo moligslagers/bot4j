@@ -66,7 +66,7 @@ public class ListRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final ListSendPayload listSendPayload = sendMessage.getPayloadWithType(ListSendPayload.class);
 
 		final List<ListViewElement> listViewElements = new ArrayList<ListViewElement>();
@@ -90,7 +90,7 @@ public class ListRuleImpl extends AbstractFacebookSendRuleImpl {
 		final Message message = new Message(templateAttachment);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 	protected void setStyle(final ListSendPayload listSendPayload, final ListTemplatePayload payload) {

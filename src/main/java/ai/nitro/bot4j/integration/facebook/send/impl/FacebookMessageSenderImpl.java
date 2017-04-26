@@ -34,7 +34,7 @@ public class FacebookMessageSenderImpl implements FacebookMessageSender {
 	}
 
 	@Override
-	public boolean send(final SendMessage sendMessage) {
+	public boolean send(final SendMessage sendMessage, Long botId) {
 		boolean result = false;
 
 		if (rules != null) {
@@ -44,7 +44,7 @@ public class FacebookMessageSenderImpl implements FacebookMessageSender {
 				if (applies) {
 					LOG.info("applying send rule {}", rule);
 
-					rule.apply(sendMessage);
+					rule.apply(sendMessage, botId);
 					result = true;
 					break;
 				}
@@ -52,5 +52,10 @@ public class FacebookMessageSenderImpl implements FacebookMessageSender {
 		}
 
 		return result;
+	}
+
+	@Override
+	public boolean send(SendMessage sendMessage) {
+		return false;
 	}
 }

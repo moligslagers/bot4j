@@ -37,7 +37,7 @@ public class MessageSenderImpl implements MessageSender {
 	}
 
 	@Override
-	public boolean send(final SendMessage sendMessage) {
+	public boolean send(final SendMessage sendMessage, Long botId) {
 		final Participant recipient = sendMessage.getRecipient();
 		final boolean result;
 
@@ -53,14 +53,14 @@ public class MessageSenderImpl implements MessageSender {
 				LOG.error("no target platform set in {}", sendMessage);
 				result = false;
 			} else {
-				result = send(sendMessage, platform);
+				result = send(sendMessage, platform, botId);
 			}
 		}
 
 		return result;
 	}
 
-	protected boolean send(final SendMessage sendMessage, final Platform platform) {
+	protected boolean send(final SendMessage sendMessage, final Platform platform, Long botId) {
 		boolean result = true;
 
 		try {
@@ -70,7 +70,7 @@ public class MessageSenderImpl implements MessageSender {
 				LOG.error("no platform message sender configured for {} and {}", platform, sendMessage);
 				result = false;
 			} else {
-				platformMessageSender.send(sendMessage);
+				platformMessageSender.send(sendMessage, botId);
 			}
 		} catch (final FacebookOAuthException e) {
 			LOG.warn("Could not send fb message: {}", e.getMessage());

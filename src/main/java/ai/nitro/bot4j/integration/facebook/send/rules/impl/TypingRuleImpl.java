@@ -24,7 +24,7 @@ public class TypingRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final TypingSendPayload typingPayload = sendMessage.getPayloadWithType(TypingSendPayload.class);
 		final Typing typingType = typingPayload.getTyping();
 
@@ -41,7 +41,7 @@ public class TypingRuleImpl extends AbstractFacebookSendRuleImpl {
 		}
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(senderActionEnum, recipient);
+		publish(senderActionEnum, recipient, botId);
 	}
 
 }

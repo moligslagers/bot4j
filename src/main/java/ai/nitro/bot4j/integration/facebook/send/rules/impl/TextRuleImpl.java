@@ -23,13 +23,13 @@ public class TextRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final TextSendPayload textPayload = sendMessage.getPayloadWithType(TextSendPayload.class);
 		final String text = textPayload.getText();
 		final Message message = new Message(text);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 }

@@ -30,7 +30,7 @@ public class QuickRepliesRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final QuickRepliesSendPayload quickReplies = sendMessage.getPayloadWithType(QuickRepliesSendPayload.class);
 
 		final String text = quickReplies.getText();
@@ -41,7 +41,7 @@ public class QuickRepliesRuleImpl extends AbstractFacebookSendRuleImpl {
 		}
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 	protected com.restfb.types.send.QuickReply createQuickReply(final QuickReply quickReply) {

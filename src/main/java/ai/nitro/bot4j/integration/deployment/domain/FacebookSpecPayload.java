@@ -9,6 +9,10 @@ public class FacebookSpecPayload {
 
     String accessToken;
 
+    public String getAccessToken() {
+        return accessToken;
+    }
+
     public FacebookSpecPayload(String accessToken) {
         this.accessToken = accessToken;
     }

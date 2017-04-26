@@ -67,4 +67,9 @@ public class AlexaMessageSenderImpl implements AlexaMessageSender {
 
 		return result;
 	}
+
+	@Override
+	public boolean send(SendMessage sendMessage, Long botId) {
+		return false;
+	}
 }

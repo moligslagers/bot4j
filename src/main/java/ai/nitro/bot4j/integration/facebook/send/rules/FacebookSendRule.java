@@ -14,5 +14,5 @@ public interface FacebookSendRule {
 
 	boolean applies(SendMessage sendMessage);
 
-	void apply(SendMessage sendMessage);
+	void apply(SendMessage sendMessage, Long botId);
 }

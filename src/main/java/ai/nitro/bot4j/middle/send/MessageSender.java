@@ -12,5 +12,5 @@ import ai.nitro.bot4j.middle.domain.send.SendMessage;
 
 public interface MessageSender {
 
-	boolean send(SendMessage sendMessage);
+	boolean send(SendMessage sendMessage, Long botId);
 }

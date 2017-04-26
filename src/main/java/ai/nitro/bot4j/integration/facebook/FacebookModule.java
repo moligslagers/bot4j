@@ -65,10 +65,5 @@ public class FacebookModule extends AbstractModule {
 		facebookSendRuleBinder.addBinding().to(ListRuleImpl.class);
 	}
 
-	@Provides
-	protected FacebookClient provideFacebookClient(final FacebookConfig config) {
-		final String facebookAccessToken = config.getAccessToken();
-		return new DefaultFacebookClient(facebookAccessToken, Version.VERSION_2_8);
-	}
 
 }

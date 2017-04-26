@@ -41,7 +41,7 @@ public class BotImpl implements Bot {
 	}
 
 	@Override
-	public void onMessage(final ReceiveMessage message) throws Exception {
+	public void onMessage(final ReceiveMessage message, Long botId) throws Exception {
 		final Participant sender = message.getSender();
 
 		for (final AbstractReceivePayload payload : message.getPayloads()) {
@@ -115,7 +115,7 @@ public class BotImpl implements Bot {
 		imageSendPayload.setImageUrl(imageUrl);
 		sendMessage.setPayload(imageSendPayload);
 
-		messageSender.send(sendMessage);
+		messageSender.send(sendMessage, this.botId);
 	}
 
 	protected void sendText(final String text, final Participant recipient) {
@@ -126,7 +126,7 @@ public class BotImpl implements Bot {
 		textSendPayload.setText(text);
 		sendMessage.setPayload(textSendPayload);
 
-		messageSender.send(sendMessage);
+		messageSender.send(sendMessage, this.botId);
 	}
 
 	protected void sendTypingOff(final Participant recipient) {
@@ -137,7 +137,7 @@ public class BotImpl implements Bot {
 		typingSendPayload.setTyping(Typing.OFF);
 		sendMessage.setPayload(typingSendPayload);
 
-		messageSender.send(sendMessage);
+		messageSender.send(sendMessage, this.botId);
 	}
 
 	protected void sendTypingOn(final Participant recipient) {
@@ -148,7 +148,7 @@ public class BotImpl implements Bot {
 		typingSendPayload.setTyping(Typing.ON);
 		sendMessage.setPayload(typingSendPayload);
 
-		messageSender.send(sendMessage);
+		messageSender.send(sendMessage, this.botId);
 	}
 
 	public Long getBotId() {

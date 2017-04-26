@@ -24,7 +24,7 @@ public class VideoRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final VideoSendPayload videoSendPayload = sendMessage.getPayloadWithType(VideoSendPayload.class);
 
 		final MediaAttachment.Type type = MediaAttachment.Type.VIDEO;
@@ -34,7 +34,7 @@ public class VideoRuleImpl extends AbstractFacebookSendRuleImpl {
 		final Message message = new Message(mediaAttachment);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 }

@@ -54,4 +54,8 @@ public class TelegramMessageSenderImpl implements TelegramMessageSender {
 		return result;
 	}
 
+	@Override
+	public boolean send(SendMessage sendMessage, Long botId) {
+		return false;
+	}
 }

@@ -32,7 +32,7 @@ public class ButtonsRuleImpl extends AbstractFacebookSendRuleImpl {
 	}
 
 	@Override
-	public void apply(final SendMessage sendMessage) {
+	public void apply(final SendMessage sendMessage, Long botId) {
 		final ButtonsSendPayload buttonsSendPayload = sendMessage.getPayloadWithType(ButtonsSendPayload.class);
 		final ButtonTemplatePayload payload = new ButtonTemplatePayload(buttonsSendPayload.getTitle());
 
@@ -44,7 +44,7 @@ public class ButtonsRuleImpl extends AbstractFacebookSendRuleImpl {
 		final Message message = new Message(templateAttachment);
 
 		final IdMessageRecipient recipient = createIdMessageRecipient(sendMessage.getRecipient());
-		publish(message, recipient);
+		publish(message, recipient, botId);
 	}
 
 }
