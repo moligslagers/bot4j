@@ -66,20 +66,20 @@ public class FacebookWebhookImpl implements FacebookWebhook {
 		LOG.error(e.getMessage(), e);
 	}
 
-	protected void handleMessagingItem(final MessagingItem messagingItem) {
+	protected void handleMessagingItem(final MessagingItem messagingItem, Long botId) {
 		final MessagingParticipant sender = messagingItem.getSender();
 
 		if (sender == null || Strings.isBlank(sender.getId())) {
 			LOG.warn("Ignoring message with empty sender");
 		} else {
-			facebookMessageHandler.handleMessagingItem(messagingItem);
+			facebookMessageHandler.handleMessagingItem(messagingItem, botId);
 		}
 	}
 
-	protected void handleWebhookEntry(final WebhookEntry webhookEntry) {
+	protected void handleWebhookEntry(final WebhookEntry webhookEntry, Long botId) {
 		for (final MessagingItem messagingItem : webhookEntry.getMessaging()) {
 			if (messagingItem != null) {
-				handleMessagingItem(messagingItem);
+				handleMessagingItem(messagingItem, botId);
 			}
 		}
 	}
@@ -92,13 +92,14 @@ public class FacebookWebhookImpl implements FacebookWebhook {
 	public String post(final HttpServletRequest req, final HttpServletResponse res) {
 		final String result = "";
 
+
 		try {
 			final String body = CharStreams.toString(req.getReader());
 			final DefaultJsonMapper mapper = new DefaultJsonMapper();
 			final WebhookObject webhookObject = mapper.toJavaObject(body, WebhookObject.class);
 
 			for (final WebhookEntry webhookEntry : webhookObject.getEntryList()) {
-				handleWebhookEntry(webhookEntry);
+				handleWebhookEntry(webhookEntry, (long)0);
 			}
 		} catch (final Exception e) {
 			handleException(e);

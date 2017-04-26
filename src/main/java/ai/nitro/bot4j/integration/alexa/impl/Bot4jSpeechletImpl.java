@@ -189,7 +189,7 @@ public class Bot4jSpeechletImpl implements Bot4jSpeechlet {
 
 	protected void receiveMessage(final IntentRequest intentRequest, final User user) {
 		final ReceiveMessage receiveMessage = createReceiveMessage(intentRequest, user);
-		messageReceiver.receive(receiveMessage);
+		messageReceiver.receive(receiveMessage, null);
 	}
 
 }

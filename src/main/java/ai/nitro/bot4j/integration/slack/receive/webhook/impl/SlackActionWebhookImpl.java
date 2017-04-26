@@ -39,7 +39,7 @@ public class SlackActionWebhookImpl implements SlackActionWebhook {
 			final JsonParser jsonParser = new JsonParser();
 			final JsonObject json = jsonParser.parse(payload).getAsJsonObject();
 
-			slackReceiveHandler.handleAction(json);
+			slackReceiveHandler.handleAction(json, (long)0);
 		} catch (final Exception e) {
 			handleException(e);
 		}

@@ -12,6 +12,6 @@ import com.restfb.types.webhook.messaging.MessagingItem;
 
 public interface FacebookReceiveHandler {
 
-	void handleMessagingItem(MessagingItem messagingItem);
+	void handleMessagingItem(MessagingItem messagingItem, Long botId);
 
 }

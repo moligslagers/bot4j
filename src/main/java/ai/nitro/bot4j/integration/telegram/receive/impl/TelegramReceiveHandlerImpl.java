@@ -26,11 +26,11 @@ public class TelegramReceiveHandlerImpl implements TelegramReceiveHandler {
 	protected TelegramReceiveMessageFactory telegramReceiveMessageFactory;
 
 	@Override
-	public void handleUpdateMessage(final Update update) {
+	public void handleUpdateMessage(final Update update, Long botId) {
 		final ReceiveMessage receiveMessage = telegramReceiveMessageFactory.createReceiveMessage(update);
 
 		if (receiveMessage != null) {
-			messageReceiver.receive(receiveMessage);
+			messageReceiver.receive(receiveMessage, botId);
 		}
 	}
 }

@@ -53,7 +53,7 @@ public class TelegramWebhookImpl implements TelegramWebhook {
 		final String result = "";
 		try {
 			final Update update = BotUtils.parseUpdate(req.getReader());
-			telegramReceiveHandler.handleUpdateMessage(update);
+			telegramReceiveHandler.handleUpdateMessage(update, (long)0);
 		} catch (final Exception e) {
 			handleException(e);
 		}

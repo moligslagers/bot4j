@@ -12,5 +12,6 @@ import ai.nitro.bot4j.middle.domain.receive.ReceiveMessage;
 
 public interface MessageReceiver {
 
-	void receive(ReceiveMessage receiveMessage);
+    void receive(ReceiveMessage receiveMessage, Long botId);
+
 }

@@ -12,7 +12,7 @@ import com.google.gson.JsonObject;
 
 public interface SlackReceiveHandler {
 
-	void handleAction(JsonObject actionJsonObject);
+	void handleAction(JsonObject actionJsonObject, Long botId);
 
-	void handleEvent(JsonObject eventJsonObject);
+	void handleEvent(JsonObject eventJsonObject, Long botId);
 }

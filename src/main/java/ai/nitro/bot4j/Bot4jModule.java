@@ -8,6 +8,7 @@
 
 package ai.nitro.bot4j;
 
+import ai.nitro.bot4j.integration.deployment.DeploymentModule;
 import com.google.inject.AbstractModule;
 
 import ai.nitro.bot4j.integration.alexa.AlexaModule;
@@ -24,6 +25,7 @@ public class Bot4jModule extends AbstractModule {
 		install(new SlackModule());
 		install(new TelegramModule());
 		install(new AlexaModule());
+		install(new DeploymentModule());
 
 		install(new MiddlewareModule());
 	}

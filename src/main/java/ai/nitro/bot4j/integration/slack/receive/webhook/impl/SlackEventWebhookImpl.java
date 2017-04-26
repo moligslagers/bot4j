@@ -62,7 +62,7 @@ public class SlackEventWebhookImpl implements SlackEventWebhook {
 		} else if (eventJsonObject.has(SUBTYPE) && BOT_MESSAGE.equals(eventJsonObject.get(SUBTYPE).getAsString())) {
 			LOG.info("ignoring bot message");
 		} else {
-			slackReceiveHandler.handleEvent(eventJsonObject);
+			slackReceiveHandler.handleEvent(eventJsonObject, (long) 0);
 		}
 	}
 

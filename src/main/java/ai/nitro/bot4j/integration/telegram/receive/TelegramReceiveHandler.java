@@ -12,5 +12,5 @@ import com.pengrad.telegrambot.model.Update;
 
 public interface TelegramReceiveHandler {
 
-	void handleUpdateMessage(Update update);
+	void handleUpdateMessage(Update update, Long botId);
 }

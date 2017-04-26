@@ -31,6 +31,8 @@ import ai.nitro.bot4j.middle.send.MessageSender;
 
 public class BotImpl implements Bot {
 
+	Long botId = null;
+
 	@Inject
 	protected MessageSender messageSender;
 
@@ -148,4 +150,13 @@ public class BotImpl implements Bot {
 
 		messageSender.send(sendMessage);
 	}
+
+	public Long getBotId() {
+		return botId;
+	}
+
+	public void setBotId(Long botId) {
+		this.botId = botId;
+	}
+
 }

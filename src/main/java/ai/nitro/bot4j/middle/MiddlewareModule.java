@@ -8,6 +8,8 @@
 
 package ai.nitro.bot4j.middle;
 
+import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
+import ai.nitro.bot4j.middle.repo.impl.StafefulBotProviderServiceImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.multibindings.MapBinder;
 
@@ -41,6 +43,7 @@ public class MiddlewareModule extends AbstractModule {
 		bind(MessageSender.class).to(MessageSenderImpl.class);
 		bind(PostbackPayloadService.class).to(PostbackPayloadServiceImpl.class);
 		bind(SessionManager.class).to(SessionManagerImpl.class);
+		bind(StatefulBotProviderService.class).to(StafefulBotProviderServiceImpl.class);
 
 		final MapBinder<Platform, PlatformMessageSender> platformMessageSenderBinder = MapBinder.newMapBinder(binder(),
 				Platform.class, PlatformMessageSender.class);

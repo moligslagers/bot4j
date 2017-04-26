@@ -12,6 +12,8 @@ import java.util.concurrent.CompletableFuture;
 
 import javax.inject.Inject;
 
+import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
+import ai.nitro.bot4j.middle.repo.impl.StafefulBotProviderServiceImpl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,15 +32,15 @@ public class MessageReceiverImpl implements MessageReceiver {
 	final static Logger LOG = LogManager.getLogger(MessageReceiverImpl.class);
 
 	@Inject
-	protected Bot bot;
-
-	@Inject
 	protected DuplicateMessageFilter duplicateMessageFilter;
 
 	@Inject
 	protected SessionManager sessionManager;
 
-	protected void handleReceiveMessage(final ReceiveMessage receiveMessage) {
+	@Inject
+	protected StatefulBotProviderService botProviderService;
+
+	protected void handleReceiveMessage(final ReceiveMessage receiveMessage, Long botId) {
 		try {
 			final Session session = sessionManager.getSession(receiveMessage);
 			receiveMessage.setSession(session);
@@ -48,6 +50,7 @@ public class MessageReceiverImpl implements MessageReceiver {
 			if (isDuplicateMessage) {
 				LOG.info("ignoring duplicate message {}", receiveMessage);
 			} else {
+				Bot bot = botProviderService.getBot(botId);
 				bot.onMessage(receiveMessage);
 			}
 		} catch (final Exception e) {
@@ -61,15 +64,15 @@ public class MessageReceiverImpl implements MessageReceiver {
 	}
 
 	@Override
-	public void receive(final ReceiveMessage receiveMessage) {
+	public void receive(final ReceiveMessage receiveMessage, Long botId) {
 		final Participant sender = receiveMessage.getSender();
 		final Platform platform = sender.getPlatform();
 		final boolean isPlatformAsync = isPlatformAsync(platform);
 
 		if (isPlatformAsync) {
-			CompletableFuture.runAsync(() -> handleReceiveMessage(receiveMessage));
+			CompletableFuture.runAsync(() -> handleReceiveMessage(receiveMessage, botId));
 		} else {
-			handleReceiveMessage(receiveMessage);
+			handleReceiveMessage(receiveMessage, botId);
 		}
 	}
 }
