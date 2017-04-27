@@ -50,9 +50,12 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     public String put(HttpServletRequest req, HttpServletResponse res) {
         LOG.info("Received PUT", DeploymentWebhook.class);
         String body = getRequestBody(req);
+        LOG.info(body);
+        //TODO: body != null is not a good indicator. Body is never null.
         if (body != null) {
             String message = deploymentReceiveHandler.handleDeployment(body);
-            return jsonResponse(message);
+            return "Simple String Response";
+            //return jsonResponse(message);
         } else {
             return jsonResponse("Body is empty");
         }
