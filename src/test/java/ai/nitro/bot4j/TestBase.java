@@ -8,6 +8,10 @@
 
 package ai.nitro.bot4j;
 
+import ai.nitro.bot4j.bot.impl.BotImpl;
+import ai.nitro.bot4j.bot.impl.DummyBot;
+import com.restfb.DefaultFacebookClient;
+import com.restfb.Version;
 import org.junit.Before;
 
 import com.google.inject.Guice;

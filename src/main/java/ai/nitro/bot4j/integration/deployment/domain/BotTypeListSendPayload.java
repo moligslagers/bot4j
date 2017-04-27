@@ -12,4 +12,8 @@ public class BotTypeListSendPayload {
     public void setBotTypes(Set<String> botTypes) {
         this.botTypes = botTypes;
     }
+
+    public Set<String> getBotTypes() {
+        return botTypes;
+    }
 }

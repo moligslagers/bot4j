@@ -34,7 +34,8 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String deleteBot(Long botId) {
-        botTypes.remove(botId);
+        bots.remove(botId);
+        facebookClients.remove(botId);
         return String.format("Successfully deleted bot %s", botId);
     }
 
