@@ -27,7 +27,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     public String delete(HttpServletRequest req, HttpServletResponse res) {
         LOG.info("Received DELETE", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.handleDeletion(req.getParameterMap());
-        return message;
+        return jsonResponse(message);
     }
 
 
@@ -35,7 +35,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     public String get(HttpServletRequest req, HttpServletResponse res) {
         LOG.info("Received GET", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.getBotTypes();
-        return message;
+        return jsonResponse(message);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         LOG.info("Received POST", DeploymentWebhook.class);
         String body = getRequestBody(req);
         String message = deploymentReceiveHandler.handleUpdate(body);
-        return message;
+        return jsonResponse(message);
     }
 
     @Override
@@ -52,9 +52,9 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         String body = getRequestBody(req);
         if (body != null) {
             String message = deploymentReceiveHandler.handleDeployment(body);
-            return message;
+            return jsonResponse(message);
         } else {
-            return "Body is empty";
+            return jsonResponse("Body is empty");
         }
     }
 
@@ -79,5 +79,9 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
             handleException(e);
         }
         return res;
+    }
+
+    private String jsonResponse(String message){
+        return String.format("{message:%s}", message);
     }
 }

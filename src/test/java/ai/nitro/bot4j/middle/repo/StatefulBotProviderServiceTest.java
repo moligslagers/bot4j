@@ -34,6 +34,8 @@ public class StatefulBotProviderServiceTest extends TestBase {
         botProviderService.putFacebookClient(1L, new DefaultFacebookClient("fbtoken",
                 Version.VERSION_2_8));
 
+        assertEquals(1, botProviderService.getBots().size());
+
         botProviderService.deleteBot(1L);
         assertEquals(0, botProviderService.getBots().size());
         assertEquals(0, botProviderService.getFacebookClients().size());
