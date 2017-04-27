@@ -74,18 +74,4 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         }
         return null;
     }
-
-    private HttpServletResponse buildResponse(HttpServletResponse res, int status, String message) {
-        try {
-            res.setStatus(status);
-            res.getWriter().write(message);
-        } catch (Exception e) {
-            handleException(e);
-        }
-        return res;
-    }
-
-    private String jsonResponse(String message){
-        return String.format("{message:'%s'}", message);
-    }
 }
