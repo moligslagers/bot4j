@@ -1,6 +1,7 @@
 package ai.nitro.bot4j.integration.deployment.receive.service;
 
 import ai.nitro.bot4j.TestBase;
+import ai.nitro.bot4j.bot.impl.DummyBot;
 import ai.nitro.bot4j.integration.deployment.domain.BotSendPayload;
 import ai.nitro.bot4j.integration.deployment.domain.FacebookSpecPayload;
 import ai.nitro.bot4j.integration.deployment.domain.SlackSpecPayload;
@@ -25,6 +26,9 @@ public class DeploymentServiceTest extends TestBase{
 
     @Test
     public void handleDeployment() throws Exception {
+
+        botProviderService.registerBot(DummyBot.class, "ExampleBot");
+
 
         deploymentService.handleDeployment(jsonPayload);
         assertEquals(1, botProviderService.getBots().size());

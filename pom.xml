@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<name>bot4j</name>
 	<groupId>ai.nitro</groupId>
-	<artifactId>bot4j</artifactId>
+	<artifactId>bot4j_fork</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 	<licenses>
@@ -104,7 +104,7 @@
        			</exclusion>
        			<exclusion> 
           			<groupId>org.slf4j</groupId>
-          			<artifactId>slf4j-log4j12</artifactId>
+          			<artifactId>slf4j-log4j13</artifactId>
       			</exclusion>
     		</exclusions> 
 		</dependency>
