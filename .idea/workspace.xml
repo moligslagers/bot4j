@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="18941e53-a618-45a7-b241-06a890a88cdc" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/StatefulBotProviderServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/StatefulBotProviderServiceTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +18,11 @@
       <file leaf-file-name="DeploymentWebhookImpl.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="70" column="20" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+            <state relative-caret-position="415">
+              <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
               <folding>
                 <element signature="e#2913#2914#0" expanded="true" />
-                <element signature="e#2974#2975#0" expanded="true" />
+                <element signature="e#2976#2977#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,7 +72,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="279">
-              <caret line="67" column="37" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+              <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -83,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/StatefulBotProviderServiceTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1105">
-              <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1811,7 +1810,7 @@
       <workItem from="1493199375114" duration="9279000" />
       <workItem from="1493212371596" duration="7779000" />
       <workItem from="1493221465728" duration="7848000" />
-      <workItem from="1493274536040" duration="20431000" />
+      <workItem from="1493274536040" duration="20650000" />
     </task>
     <task id="LOCAL-00001" summary="Different BotTypes and deployment of new Bots at runtime">
       <created>1493220226336</created>
@@ -1870,7 +1869,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52599000" />
+    <option name="totallyTimeSpent" value="52818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1895,9 +1894,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3163597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3163597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2238806" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -2350,7 +2349,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/StatefulBotProviderServiceTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
-          <caret line="78" column="0" lean-forward="true" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2358,18 +2357,18 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
-          <caret line="67" column="37" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+          <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="70" column="20" lean-forward="true" selection-start-line="70" selection-start-column="20" selection-end-line="70" selection-end-column="20" />
+        <state relative-caret-position="415">
+          <caret line="84" column="56" lean-forward="true" selection-start-line="84" selection-start-column="56" selection-end-line="84" selection-end-column="56" />
           <folding>
             <element signature="e#2913#2914#0" expanded="true" />
-            <element signature="e#2974#2975#0" expanded="true" />
+            <element signature="e#2976#2977#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -82,6 +82,6 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     }
 
     private String jsonResponse(String message){
-        return String.format("{message:%s}", message);
+        return String.format("{message:'%s'}", message);
     }
 }
