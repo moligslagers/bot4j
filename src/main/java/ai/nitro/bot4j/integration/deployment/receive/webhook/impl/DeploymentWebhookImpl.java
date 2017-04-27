@@ -27,7 +27,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     public String delete(HttpServletRequest req, HttpServletResponse res) {
         LOG.info("Received DELETE", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.handleDeletion(req.getParameterMap());
-        return jsonResponse(message);
+        return message;
     }
 
 
@@ -35,7 +35,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     public String get(HttpServletRequest req, HttpServletResponse res) {
         LOG.info("Received GET", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.getBotTypes();
-        return jsonResponse(message);
+        return message;
     }
 
     @Override
@@ -43,7 +43,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         LOG.info("Received POST", DeploymentWebhook.class);
         String body = getRequestBody(req);
         String message = deploymentReceiveHandler.handleUpdate(body);
-        return jsonResponse(message);
+        return message;
     }
 
     @Override
@@ -55,10 +55,10 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         //TODO: body != null is not a good indicator. Body is never null.
         if (body != null) {
             String message = deploymentReceiveHandler.handleDeployment(body);
-            return "Response";
+            return message;
             //return jsonResponse(message);
         } else {
-            return jsonResponse("Body is empty");
+            return "Body is empty";
         }
     }
 
