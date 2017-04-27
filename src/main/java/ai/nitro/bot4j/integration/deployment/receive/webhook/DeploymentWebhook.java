@@ -11,7 +11,7 @@ public interface DeploymentWebhook {
 
     String get(HttpServletRequest req, HttpServletResponse res);
 
-    String post(HttpServletRequest req, HttpServletRequest res);
+    String post(HttpServletRequest req, HttpServletResponse res);
 
     HttpServletResponse put(HttpServletRequest req, HttpServletResponse res);
 

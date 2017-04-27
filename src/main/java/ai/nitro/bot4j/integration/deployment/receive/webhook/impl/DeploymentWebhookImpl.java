@@ -43,7 +43,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     }
 
     @Override
-    public String post(HttpServletRequest req, HttpServletRequest res) {
+    public String post(HttpServletRequest req, HttpServletResponse res) {
         String body = getRequestBody(req);
         return deploymentReceiveHandler.handleUpdate(body);
     }
