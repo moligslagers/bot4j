@@ -30,17 +30,11 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     StatefulBotProviderService botProviderService;
 
     @Override
-    public HttpServletResponse delete(HttpServletRequest req, HttpServletResponse res) {
+    public String delete(HttpServletRequest req, HttpServletResponse res) {
         String message = deploymentReceiveHandler.handleDeletion(req.getParameterMap());
-        return buildResponse(res, 200, message);
+        return message;
     }
 
-    /*
-    @Override
-    public HttpServletResponse get(HttpServletRequest req, HttpServletResponse res) {
-        String message = deploymentReceiveHandler.getBotTypes();
-        return buildResponse(res, 200, message);
-    }*/
 
     @Override
     public String get(HttpServletRequest req, HttpServletResponse res) {
@@ -49,21 +43,20 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     }
 
     @Override
-    public HttpServletResponse post(HttpServletRequest req, HttpServletResponse res) {
+    public String post(HttpServletRequest req, HttpServletResponse res) {
         String body = getRequestBody(req);
         String message = deploymentReceiveHandler.handleUpdate(body);
-        return buildResponse(res, 200, message);
+        return message;
     }
 
     @Override
-    public HttpServletResponse put(HttpServletRequest req, HttpServletResponse res) {
+    public String put(HttpServletRequest req, HttpServletResponse res) {
         String body = getRequestBody(req);
         if (body != null) {
             String message = deploymentReceiveHandler.handleDeployment(body);
-            res = buildResponse(res, 200, message);
-            return res;
+            return message;
         } else {
-            return buildResponse(res, 400, "Body is empty");
+            return "Body is empty";
         }
     }
 
