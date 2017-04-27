@@ -23,14 +23,9 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     @Inject
     DeploymentReceiveHandler deploymentReceiveHandler;
 
-    @Inject
-    DeploymentService deploymentService;
-
-    @Inject
-    StatefulBotProviderService botProviderService;
-
     @Override
     public String delete(HttpServletRequest req, HttpServletResponse res) {
+        LOG.info("Received DELETE", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.handleDeletion(req.getParameterMap());
         return message;
     }
@@ -38,12 +33,14 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String get(HttpServletRequest req, HttpServletResponse res) {
+        LOG.info("Received GET", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.getBotTypes();
         return message;
     }
 
     @Override
     public String post(HttpServletRequest req, HttpServletResponse res) {
+        LOG.info("Received POST", DeploymentWebhook.class);
         String body = getRequestBody(req);
         String message = deploymentReceiveHandler.handleUpdate(body);
         return message;
@@ -51,6 +48,7 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String put(HttpServletRequest req, HttpServletResponse res) {
+        LOG.info("Received PUT", DeploymentWebhook.class);
         String body = getRequestBody(req);
         if (body != null) {
             String message = deploymentReceiveHandler.handleDeployment(body);

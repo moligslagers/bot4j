@@ -4,9 +4,12 @@ import ai.nitro.bot4j.integration.deployment.domain.BotSendPayload;
 import ai.nitro.bot4j.integration.deployment.domain.BotTypeListSendPayload;
 import ai.nitro.bot4j.integration.deployment.receive.DeploymentReceiveHandler;
 import ai.nitro.bot4j.integration.deployment.receive.service.DeploymentService;
+import ai.nitro.bot4j.integration.facebook.receive.webhook.impl.FacebookWebhookImpl;
 import ai.nitro.bot4j.middle.receive.MessageReceiver;
 import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
 import com.google.gson.Gson;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
@@ -19,14 +22,14 @@ import java.util.Set;
 
 public class DeploymentReceiveHandlerImpl implements DeploymentReceiveHandler{
 
-    @Inject
-    StatefulBotProviderService botProviderService;
+    private final static Logger LOG = LogManager.getLogger(FacebookWebhookImpl.class);
 
     @Inject
     DeploymentService deploymentService;
 
     @Override
     public String getBotTypes() {
+        LOG.info("GET: BotTypes", DeploymentReceiveHandler.class);
         Gson gson = new Gson();
         BotTypeListSendPayload botTypeListSendPayload = new BotTypeListSendPayload();
         botTypeListSendPayload.setBotTypes(deploymentService.getBotTypes());
@@ -36,11 +39,13 @@ public class DeploymentReceiveHandlerImpl implements DeploymentReceiveHandler{
     @Override
     public String handleDeletion(Map<String, String[]> params) {
         String botId = params.get("bot_id")[0];
+        LOG.info(String.format("DELETE: Bot %s", botId), DeploymentReceiveHandler.class);
         return deploymentService.handleDeletion(botId);
     }
 
     @Override
     public String handleDeployment(String json) {
+        LOG.info(String.format("PUT: Deploying new Bot"), DeploymentReceiveHandler.class);
         Gson gson = new Gson();
         BotSendPayload botSendPayload = gson.fromJson(json, BotSendPayload.class);
         return deploymentService.handleDeployment(botSendPayload);
@@ -48,6 +53,7 @@ public class DeploymentReceiveHandlerImpl implements DeploymentReceiveHandler{
 
     @Override
     public String handleUpdate(String json) {
+        LOG.info(String.format("POST: update Bot"), DeploymentReceiveHandler.class);
         Gson gson = new Gson();
         BotSendPayload botSendPayload = gson.fromJson(json, BotSendPayload.class);
         return deploymentService.handleUpdate(botSendPayload);
