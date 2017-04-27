@@ -35,10 +35,17 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
         return buildResponse(res, 200, message);
     }
 
+    /*
     @Override
     public HttpServletResponse get(HttpServletRequest req, HttpServletResponse res) {
         String message = deploymentReceiveHandler.getBotTypes();
         return buildResponse(res, 200, message);
+    }*/
+
+    @Override
+    public String get(HttpServletRequest req, HttpServletResponse res) {
+        String message = deploymentReceiveHandler.getBotTypes();
+        return message;
     }
 
     @Override

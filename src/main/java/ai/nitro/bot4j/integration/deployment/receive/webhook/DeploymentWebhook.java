@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 public interface DeploymentWebhook {
     HttpServletResponse delete(HttpServletRequest req, HttpServletResponse res);
 
-    HttpServletResponse get(HttpServletRequest req, HttpServletResponse res);
+    String get(HttpServletRequest req, HttpServletResponse res);
 
     HttpServletResponse post(HttpServletRequest req, HttpServletResponse res);
 
