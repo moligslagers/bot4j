@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DeploymentWebhookImpl implements DeploymentWebhook {
 
-    private final static Logger LOG = LogManager.getLogger(FacebookWebhookImpl.class);
+    private final static Logger LOG = LogManager.getLogger(DeploymentWebhook.class);
 
     @Inject
     DeploymentReceiveHandler deploymentReceiveHandler;

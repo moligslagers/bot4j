@@ -20,7 +20,7 @@ import java.util.Set;
  */
 public class DeploymentServiceImpl implements DeploymentService {
 
-    private final static Logger LOG = LogManager.getLogger(FacebookWebhookImpl.class);
+    private final static Logger LOG = LogManager.getLogger(DeploymentService.class);
 
 
     @Inject

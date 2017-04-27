@@ -22,7 +22,7 @@ import java.util.Set;
 
 public class DeploymentReceiveHandlerImpl implements DeploymentReceiveHandler{
 
-    private final static Logger LOG = LogManager.getLogger(FacebookWebhookImpl.class);
+    private final static Logger LOG = LogManager.getLogger(DeploymentReceiveHandler.class);
 
     @Inject
     DeploymentService deploymentService;

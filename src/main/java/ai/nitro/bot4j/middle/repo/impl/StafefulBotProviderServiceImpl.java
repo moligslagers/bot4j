@@ -25,7 +25,7 @@ import java.util.Set;
 @Singleton
 public class StafefulBotProviderServiceImpl implements StatefulBotProviderService{
 
-    private final static Logger LOG = LogManager.getLogger(FacebookWebhookImpl.class);
+    private final static Logger LOG = LogManager.getLogger(StatefulBotProviderService.class);
 
 
     @Inject
@@ -39,8 +39,8 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String deleteBot(Long botId) {
-        LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
         LOG.info(String.format("Deleting Bot %s", botId), StatefulBotProviderService.class);
+        LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
 
         bots.remove(botId);
         facebookClients.remove(botId);
@@ -82,10 +82,16 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String putBot(Long botId, String botType){
-        LOG.info(String.format("Adding new Bot with id %s and type %s", botId, botType), StatefulBotProviderService.class);
+        LOG.info(String.format("Adding  Bot %s", botId), StatefulBotProviderService.class);
+        LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
+
         BotImpl bot = injector.getInstance(botTypes.get(botType));
         bot.setBotId(botId);
         bots.put(botId, bot);
+
+        LOG.info(String.format("Adding  Bot %s", botId), StatefulBotProviderService.class);
+        LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
+
         return String.format("Added new bot with id %s", botId);
     }
 
@@ -105,7 +111,9 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String updateBot(Long botId, String botType, FacebookClient facebookClient) {
+
         LOG.info(String.format("Updating Bot with id %s to new type %s", botId, botType), StatefulBotProviderService.class);
+        LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
 
         bots.remove(botId);
         Bot bot = injector.getInstance(botTypes.get(botType));
