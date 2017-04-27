@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletResponse;
  * Created by Markus on 26.04.2017.
  */
 public interface DeploymentWebhook {
-    String delete(HttpServletRequest req, HttpServletResponse res);
+    HttpServletResponse delete(HttpServletRequest req, HttpServletResponse res);
 
-    String get(HttpServletRequest req, HttpServletResponse res);
+    HttpServletResponse get(HttpServletRequest req, HttpServletResponse res);
 
-    String post(HttpServletRequest req, HttpServletResponse res);
+    HttpServletResponse post(HttpServletRequest req, HttpServletResponse res);
 
     HttpServletResponse put(HttpServletRequest req, HttpServletResponse res);
 
