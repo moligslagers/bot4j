@@ -12,6 +12,7 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by Markus on 26.04.2017.
@@ -39,6 +40,11 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
     @Override
     public Map<Long, Bot> getBots() {
         return bots;
+    }
+
+    @Override
+    public Set<String> getBotTypes() {
+        return this.botTypes.keySet();
     }
 
     @Override
