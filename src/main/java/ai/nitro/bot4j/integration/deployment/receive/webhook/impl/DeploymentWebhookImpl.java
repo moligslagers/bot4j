@@ -33,26 +33,54 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
     StatefulBotProviderService botProviderService;
 
     @Override
-    public String put(HttpServletRequest req, HttpServletResponse res) {
+    public String delete(HttpServletRequest req, HttpServletResponse res) {
+        return deploymentReceiveHandler.handleDeletion(req.getParameterMap());
+    }
+
+    @Override
+    public String get(HttpServletRequest req, HttpServletResponse res) {
+        return deploymentReceiveHandler.getBotTypes();
+    }
+
+    @Override
+    public String post(HttpServletRequest req, HttpServletRequest res) {
+        String body = getRequestBody(req);
+        return deploymentReceiveHandler.handleUpdate(body);
+    }
+
+    @Override
+    public HttpServletResponse put(HttpServletRequest req, HttpServletResponse res) {
+        String body = getRequestBody(req);
+        if(body != null){
+            String message = deploymentReceiveHandler.handleDeployment(body);
+            res = fillResponse(res, 200, message);
+            return res;
+        }
+        else{
+            return fillResponse(res, 400,"Body is empty");
+        }
+    }
+
+    private void handleException(final Exception e) {
+        LOG.error(e.getMessage(), e);
+    }
+
+    private String getRequestBody(HttpServletRequest req){
         try {
-            final String body = CharStreams.toString(req.getReader());
-            deploymentReceiveHandler.handleDeployment(body);
+            return CharStreams.toString(req.getReader());
         } catch (Exception e) {
             handleException(e);
         }
         return null;
     }
 
-    @Override
-    public String get(HttpServletRequest req, HttpServletResponse res) {
-        Gson gson = new Gson();
-        BotTypeListSendPayload botTypeListSendPayload = new BotTypeListSendPayload();
-        botTypeListSendPayload.setBotTypes(botProviderService.getBotTypes());
-        String jsonResponse = gson.toJson(botTypeListSendPayload);
-        return jsonResponse;
-    }
-
-    protected void handleException(final Exception e) {
-        LOG.error(e.getMessage(), e);
+    private HttpServletResponse fillResponse(HttpServletResponse res, int status, String message){
+        try{
+            res.setStatus(status);
+            res.getWriter().write(message);
+        }catch(Exception e){
+            handleException(e);
+        }
+        return res;
     }
 }

@@ -7,6 +7,7 @@ import ai.nitro.bot4j.integration.deployment.domain.FacebookSpecPayload;
 import ai.nitro.bot4j.integration.deployment.domain.SlackSpecPayload;
 import ai.nitro.bot4j.integration.deployment.domain.TelegramSpecPayload;
 import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
+import com.google.gson.Gson;
 import org.junit.Test;
 
 import javax.inject.Inject;
@@ -29,8 +30,12 @@ public class DeploymentServiceTest extends TestBase{
 
         botProviderService.registerBot(DummyBot.class, "ExampleBot");
 
+        Gson gson = new Gson();
 
-        deploymentService.handleDeployment(jsonPayload);
+        BotSendPayload botSendPayload = gson.fromJson(jsonPayload, BotSendPayload.class);
+
+
+        deploymentService.handleDeployment(botSendPayload);
         assertEquals(1, botProviderService.getBots().size());
     }
 

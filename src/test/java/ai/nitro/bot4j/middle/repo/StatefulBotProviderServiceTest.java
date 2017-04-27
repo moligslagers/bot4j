@@ -56,13 +56,15 @@ public class StatefulBotProviderServiceTest extends TestBase {
 
     @Test
     public void putFacebookClient() throws Exception {
-        botProviderService.putFacebookClient(1L, "abc123");
+        FacebookClient facebookClient = new DefaultFacebookClient("abc123", Version.VERSION_2_8);
+        botProviderService.putFacebookClient(1L, facebookClient);
         assertEquals(1, botProviderService.getFacebookClients().size());
     }
 
     @Test
     public void getFacebookClient() throws Exception {
-        botProviderService.putFacebookClient(1L, "abc123");
+        FacebookClient facebookClient = new DefaultFacebookClient("abc123", Version.VERSION_2_8);
+        botProviderService.putFacebookClient(1L, facebookClient);
         assertSame(DefaultFacebookClient.class, botProviderService.getFacebookClient(1L).getClass());
 
     }

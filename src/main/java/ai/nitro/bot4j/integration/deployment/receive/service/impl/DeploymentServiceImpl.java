@@ -6,9 +6,11 @@ import ai.nitro.bot4j.integration.deployment.receive.service.DeploymentService;
 import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
 import com.google.gson.Gson;
 import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
 import com.restfb.Version;
 
 import javax.inject.Inject;
+import java.util.Set;
 
 /**
  * Created by Markus on 26.04.2017.
@@ -19,20 +21,35 @@ public class DeploymentServiceImpl implements DeploymentService {
     StatefulBotProviderService botProviderService;
 
     @Override
-    public void handleDeployment(String json) {
-        BotSendPayload botSendPayload = parseJson(json);
-
-        Long botId = botSendPayload.getId();
-
-        botProviderService.putBot(botId, botSendPayload.getBotType());
-
-        String accessToken = botSendPayload.getFacebookSpec().getAccessToken();
-
-        botProviderService.putFacebookClient(botId, accessToken);
+    public Set<String> getBotTypes() {
+        return botProviderService.getBotTypes();
     }
 
-    public BotSendPayload parseJson(String json) {
-        Gson gson = new Gson();
-        return gson.fromJson(json, BotSendPayload.class);
+    @Override
+    public String handleDeletion(String botId) {
+        // TODO: Handle wrong argument for botId not parseable to Long
+        return botProviderService.deleteBot(Long.parseLong(botId));
+    }
+
+    @Override
+    public String handleUpdate(BotSendPayload botSendPayload) {
+
+        Long botId = botSendPayload.getId();
+        String botType = botSendPayload.getBotType();
+        String accessToken = botSendPayload.getFacebookSpec().getAccessToken();
+        FacebookClient facebookClient = new DefaultFacebookClient(accessToken, Version.VERSION_2_8);
+        return botProviderService.updateBot(botId, botType, facebookClient);
+
+    }
+
+    @Override
+    public String handleDeployment(BotSendPayload botSendPayload) {
+
+        Long botId = botSendPayload.getId();
+        botProviderService.putBot(botId, botSendPayload.getBotType());
+        String accessToken = botSendPayload.getFacebookSpec().getAccessToken();
+        FacebookClient facebookClient = new DefaultFacebookClient(accessToken, Version.VERSION_2_8);
+        return botProviderService.putFacebookClient(botId, facebookClient);
+
     }
 }
