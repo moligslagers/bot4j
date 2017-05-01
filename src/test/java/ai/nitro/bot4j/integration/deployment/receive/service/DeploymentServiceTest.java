@@ -71,7 +71,7 @@ public class DeploymentServiceTest extends TestBase {
         BotSendPayload botSendPayload = gson.fromJson(jsonPayload, BotSendPayload.class);
 
 
-        deploymentService.handleDeployment(botSendPayload);
+        System.out.println(deploymentService.handleDeployment(botSendPayload));
         assertEquals(1, botProviderService.getBots().size());
         assertEquals(1, botProviderService.getFacebookClients().size());
     }

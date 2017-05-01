@@ -82,7 +82,9 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String putBot(Long botId, String botType){
-        LOG.info(String.format("Adding  Bot %s", botId), StatefulBotProviderService.class);
+        if(bots.containsKey(botId)){
+            return String.format("A Bot with id %s already exists", botId);
+        }
         LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
 
         BotImpl bot = injector.getInstance(botTypes.get(botType));
@@ -97,6 +99,12 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String putFacebookClient(Long botId, FacebookClient facebookClient){
+        if(facebookClients.containsKey(botId)){
+            if(!bots.containsKey(botId)){
+                LOG.warn(String.format("Facebook Client with ID %s has no corresponding Bot", botId));
+            }
+            return String.format("A Facebook Client for Bot %s already exists", botId);
+        }
         LOG.info(String.format("Adding new FacebookClient for bot%s", botId), StatefulBotProviderService.class);
         facebookClients.put(botId, facebookClient);
         return String.format("Added new facebookClient for bot %s", botId);
@@ -105,12 +113,19 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
     @Override
     public String registerBot(Class<? extends BotImpl> botClass, String botType) {
         LOG.info(String.format("Registering new BotType %s", botType), StatefulBotProviderService.class);
+        if(botTypes.containsKey(botType)){
+            LOG.warn(String.format("Duplicate Bot Type %s. Initial Bot Type will be overwritten.", botType));
+        }
         botTypes.put(botType, botClass);
         return String.format("Added new BotType %s", botType);
     }
 
     @Override
     public String updateBot(Long botId, String botType, FacebookClient facebookClient) {
+
+        if(!bots.containsKey(botId)){
+            return String.format("Bot cannot be updated. No Bot with id %s", botId);
+        }
 
         LOG.info(String.format("Updating Bot with id %s to new type %s", botId, botType), StatefulBotProviderService.class);
         LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);

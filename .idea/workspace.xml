@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18941e53-a618-45a7-b241-06a890a88cdc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,11 +18,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DeploymentWebhookImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DeploymentWebhookImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="74" column="20" lean-forward="true" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+            <state relative-caret-position="284">
+              <caret line="56" column="62" lean-forward="false" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -30,7 +33,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="32" column="50" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="e#0#3299#0" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#1857#1858#0" expanded="false" />
+                <element signature="e#1892#1893#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -38,8 +46,8 @@
       <file leaf-file-name="DeploymentReceiveHandlerImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/impl/DeploymentReceiveHandlerImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
+            <state relative-caret-position="238">
+              <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -48,9 +56,21 @@
       <file leaf-file-name="DeploymentServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/service/impl/DeploymentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+            <state relative-caret-position="303">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BotSendPayload.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/domain/BotSendPayload.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding>
+                <element signature="e#506#507#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -60,16 +80,38 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding>
+                <element signature="e#0#424#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StafefulBotProviderServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StafefulBotProviderServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
-              <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
+            <state relative-caret-position="153">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DeploymentServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="55">
+              <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -80,7 +122,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1105">
               <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="imports" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -118,7 +162,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/Bot4jModule.java" />
         <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/receive/impl/MessageReceiverImplTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderService.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/receive/MessageReceiver.java" />
@@ -161,14 +204,15 @@
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/DeploymentWebhook.java" />
         <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImplTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/TestBase.java" />
-        <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/domain/BotTypeListSendPayload.java" />
         <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/DeploymentReceiveHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/service/impl/DeploymentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/impl/DeploymentReceiveHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/middle/repo/StatefulBotProviderServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -212,20 +256,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="bot4j_fork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bot4j" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bot4j_fork" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1224,6 +1254,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="add_unversioned_files" value="true&#10;C:/Users/Markus/IdeaProjects/bot4j_fork/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -1258,7 +1289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.StatefulBotProviderServiceTest.deleteBot">
+  <component name="RunManager" selected="JUnit.All in bot4j">
     <configuration default="false" name="DeploymentReceiveHandlerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1271,32 +1302,6 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="ai.nitro.bot4j.integration.deployment.receive" />
       <option name="MAIN_CLASS_NAME" value="ai.nitro.bot4j.integration.deployment.receive.DeploymentReceiveHandlerTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="DeploymentServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="ai.nitro.bot4j.integration.deployment.receive.service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="bot4j" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="ai.nitro.bot4j.integration.deployment.receive.service" />
-      <option name="MAIN_CLASS_NAME" value="ai.nitro.bot4j.integration.deployment.receive.service.DeploymentServiceTest" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -1371,6 +1376,32 @@
       <option name="PACKAGE_NAME" value="ai.nitro.bot4j.middle.repo" />
       <option name="MAIN_CLASS_NAME" value="ai.nitro.bot4j.middle.repo.StatefulBotProviderServiceTest" />
       <option name="METHOD_NAME" value="deleteBot" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="DeploymentServiceTest.handleDeployment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="ai.nitro.bot4j.integration.deployment.receive.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="bot4j" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="ai.nitro.bot4j.integration.deployment.receive.service" />
+      <option name="MAIN_CLASS_NAME" value="ai.nitro.bot4j.integration.deployment.receive.service.DeploymentServiceTest" />
+      <option name="METHOD_NAME" value="handleDeployment" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1773,18 +1804,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.DeploymentReceiveHandlerTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.DeploymentServiceTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.All in bot4j" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest.deleteBot" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.All in bot4j" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest.deleteBot" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.DeploymentServiceTest.handleDeployment" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest.deleteBot" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in bot4j" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.DeploymentReceiveHandlerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.DeploymentServiceTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.All in bot4j" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.DeploymentServiceTest.handleDeployment" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest.deleteBot" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StatefulBotProviderServiceTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.DeploymentReceiveHandlerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -1804,7 +1835,7 @@
       <workItem from="1493212371596" duration="7779000" />
       <workItem from="1493221465728" duration="7848000" />
       <workItem from="1493274536040" duration="23237000" />
-      <workItem from="1493631537405" duration="40000" />
+      <workItem from="1493631537405" duration="3384000" />
     </task>
     <task id="LOCAL-00001" summary="Different BotTypes and deployment of new Bots at runtime">
       <created>1493220226336</created>
@@ -1831,23 +1862,23 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_bot4j - 2017.04.27 at 15h 33m 16s.xml">
+    <history-entry file="All_in_bot4j - 2017.05.01 at 12h 43m 36s.xml">
       <configuration name="All in bot4j" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeploymentReceiveHandlerTest - 2017.04.27 at 15h 26m 46s.xml">
-      <configuration name="DeploymentReceiveHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeploymentReceiveHandlerTest - 2017.04.27 at 15h 27m 07s.xml">
-      <configuration name="DeploymentReceiveHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeploymentReceiveHandlerTest - 2017.04.27 at 15h 29m 17s.xml">
-      <configuration name="DeploymentReceiveHandlerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeploymentReceiveHandlerTest - 2017.04.27 at 15h 31m 19s.xml">
-      <configuration name="DeploymentReceiveHandlerTest" configurationId="JUnit" />
+    <history-entry file="All_in_bot4j - 2017.05.01 at 12h 56m 51s.xml">
+      <configuration name="All in bot4j" configurationId="JUnit" />
     </history-entry>
     <history-entry file="DeploymentReceiveHandlerTest - 2017.04.27 at 15h 33m 06s.xml">
       <configuration name="DeploymentReceiveHandlerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeploymentServiceTest_handleDeployment - 2017.05.01 at 12h 52m 14s.xml">
+      <configuration name="DeploymentServiceTest.handleDeployment" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeploymentServiceTest_handleDeployment - 2017.05.01 at 12h 53m 08s.xml">
+      <configuration name="DeploymentServiceTest.handleDeployment" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeploymentServiceTest_handleDeployment - 2017.05.01 at 12h 56m 18s.xml">
+      <configuration name="DeploymentServiceTest.handleDeployment" configurationId="JUnit" />
     </history-entry>
     <history-entry file="StatefulBotProviderServiceTest - 2017.04.27 at 15h 32m 42s.xml">
       <configuration name="StatefulBotProviderServiceTest" configurationId="JUnit" />
@@ -1863,7 +1894,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55445000" />
+    <option name="totallyTimeSpent" value="58789000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1881,30 +1912,30 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3163597" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31628534" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32839838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22686376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22107969" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29577464" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3768506" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1948,7 +1979,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/service/impl/DeploymentServiceImpl.java</url>
+          <line>53</line>
+          <properties class="ai.nitro.bot4j.integration.deployment.receive.service.impl.DeploymentServiceImpl" method="handleDeployment">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1957,13 +1998,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/facebook/send/FacebookMessageSender.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="12" column="58" lean-forward="false" selection-start-line="12" selection-start-column="58" selection-end-line="12" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/send/MessageSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -2176,13 +2210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/domain/BotSendPayload.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -2204,7 +2231,7 @@
         <state relative-caret-position="255">
           <caret line="15" column="58" lean-forward="false" selection-start-line="15" selection-start-column="58" selection-end-line="15" selection-end-column="58" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2223,7 +2250,7 @@
         <state relative-caret-position="410">
           <caret line="33" column="13" lean-forward="true" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2233,16 +2260,8 @@
         <state relative-caret-position="323">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="98" column="76" lean-forward="true" selection-start-line="98" selection-start-column="76" selection-end-line="98" selection-end-column="76" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2251,7 +2270,7 @@
         <state relative-caret-position="340">
           <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2260,6 +2279,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="38" lean-forward="false" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#260#261#0" expanded="false" />
+            <element signature="e#300#301#0" expanded="false" />
+            <element signature="e#371#372#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2283,7 +2308,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding />
+          <folding>
+            <element signature="e#0#424#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2291,15 +2318,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="32" column="50" lean-forward="false" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/impl/DeploymentReceiveHandlerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="83" lean-forward="false" selection-start-line="24" selection-start-column="83" selection-end-line="24" selection-end-column="83" />
-          <folding />
+          <folding>
+            <element signature="e#0#3299#0" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#1857#1858#0" expanded="false" />
+            <element signature="e#1892#1893#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2307,30 +2331,66 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="56" column="62" lean-forward="false" selection-start-line="56" selection-start-column="62" selection-end-line="56" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/impl/DeploymentReceiveHandlerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="50" column="39" lean-forward="false" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/ai/nitro/bot4j/integration/deployment/receive/service/DeploymentServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="55">
+          <caret line="64" column="25" lean-forward="false" selection-start-line="64" selection-start-column="25" selection-end-line="64" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/domain/BotSendPayload.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#506#507#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/service/impl/DeploymentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/middle/repo/impl/StafefulBotProviderServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="67" column="37" lean-forward="false" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/service/impl/DeploymentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/nitro/bot4j/integration/deployment/receive/webhook/impl/DeploymentWebhookImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="74" column="20" lean-forward="true" selection-start-line="74" selection-start-column="20" selection-end-line="74" selection-end-column="20" />
+        <state relative-caret-position="85">
+          <caret line="22" column="35" lean-forward="true" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
           <folding />
         </state>
       </provider>
