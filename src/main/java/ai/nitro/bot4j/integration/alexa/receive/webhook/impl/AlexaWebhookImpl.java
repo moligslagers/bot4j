@@ -26,7 +26,7 @@ import ai.nitro.bot4j.integration.alexa.receive.webhook.AlexaWebhook;
 
 public class AlexaWebhookImpl implements AlexaWebhook {
 
-	static Logger LOG = LogManager.getLogger(AlexaWebhookImpl.class);
+	//static Logger LOG = LogManager.getLogger(AlexaWebhookImpl.class);
 
 	@Inject
 	protected AlexaReceiveHandler alexaReceiveHandler;
@@ -45,10 +45,10 @@ public class AlexaWebhookImpl implements AlexaWebhook {
 			final byte[] outputBytes = alexaReceiveHandler.handleSpeechletRequest(serializedSpeechletRequest);
 			result = new String(outputBytes);
 		} catch (final IOException e) {
-			LOG.warn(e.getMessage(), e);
+			//LOG.warn(e.getMessage(), e);
 		} catch (final SecurityException e) {
 			final int statusCode = HttpServletResponse.SC_BAD_REQUEST;
-			LOG.error("Exception occurred in doPost, returning status code {}", statusCode, e);
+			//LOG.error("Exception occurred in doPost, returning status code {}", statusCode, e);
 			res.sendError(statusCode, e.getMessage());
 		}
 
