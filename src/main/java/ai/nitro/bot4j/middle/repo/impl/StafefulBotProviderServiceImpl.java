@@ -2,14 +2,9 @@ package ai.nitro.bot4j.middle.repo.impl;
 
 import ai.nitro.bot4j.bot.Bot;
 import ai.nitro.bot4j.bot.impl.BotImpl;
-import ai.nitro.bot4j.integration.deployment.domain.BotSendPayload;
-import ai.nitro.bot4j.integration.facebook.receive.webhook.impl.FacebookWebhookImpl;
 import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
 import com.google.inject.Injector;
-import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
-import com.restfb.Version;
-import org.apache.commons.io.input.BOMInputStream;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,22 +15,24 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Markus on 26.04.2017.
+ * Created by Markus Oligslagers on 26.04.2017.
+ * Implentation of Bot Repository for the Bot4J Framework. Extends the Framework with a stateful bot repository that
+ * manages several bot implementations at run time
  */
 @Singleton
-public class StafefulBotProviderServiceImpl implements StatefulBotProviderService{
+public class StafefulBotProviderServiceImpl implements StatefulBotProviderService {
 
     private final static Logger LOG = LogManager.getLogger(StatefulBotProviderService.class);
 
 
     @Inject
-    Injector injector;
+    private Injector injector;
 
-    protected Map<Long, Bot> bots = new HashMap<>();
+    private Map<Long, Bot> bots = new HashMap<>();
 
-    protected Map<String, Class<? extends BotImpl>> botTypes = new HashMap<>();
+    private Map<String, Class<? extends BotImpl>> botTypes = new HashMap<>();
 
-    protected Map<Long, FacebookClient> facebookClients = new HashMap<>();
+    private Map<Long, FacebookClient> facebookClients = new HashMap<>();
 
     @Override
     public String deleteBot(Long botId) {
@@ -51,7 +48,7 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
     }
 
     @Override
-    public Bot getBot(Long botId){
+    public Bot getBot(Long botId) {
         LOG.info(String.format("Getting Bot %s", botId), StatefulBotProviderService.class);
         return bots.get(botId);
     }
@@ -69,7 +66,7 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
     }
 
     @Override
-    public FacebookClient getFacebookClient(Long botId){
+    public FacebookClient getFacebookClient(Long botId) {
         LOG.info(String.format("Getting FacebookClient for Bot: %s", botId), StatefulBotProviderService.class);
         return facebookClients.get(botId);
     }
@@ -80,9 +77,16 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
         return this.facebookClients;
     }
 
+    /**
+     * Add a new bot to the bot repository
+     *
+     * @param botId   the id to retrieve the bot back from
+     * @param botType name of the bot class implementation the bot should be instantiated from
+     * @return String
+     */
     @Override
-    public String putBot(Long botId, String botType){
-        if(bots.containsKey(botId)){
+    public String putBot(Long botId, String botType) {
+        if (bots.containsKey(botId)) {
             return String.format("A Bot with id %s already exists", botId);
         }
         LOG.info(String.format("Number of Bots: %s", bots.size()), StatefulBotProviderService.class);
@@ -97,10 +101,17 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
         return String.format("Added new bot with id %s", botId);
     }
 
+    /**
+     * Add a new FacebookClient for a bot
+     *
+     * @param botId          The botId the FacebookClient belongs to
+     * @param facebookClient A FacebookClient containint the access token
+     * @return String
+     */
     @Override
-    public String putFacebookClient(Long botId, FacebookClient facebookClient){
-        if(facebookClients.containsKey(botId)){
-            if(!bots.containsKey(botId)){
+    public String putFacebookClient(Long botId, FacebookClient facebookClient) {
+        if (facebookClients.containsKey(botId)) {
+            if (!bots.containsKey(botId)) {
                 LOG.warn(String.format("Facebook Client with ID %s has no corresponding Bot", botId));
             }
             return String.format("A Facebook Client for Bot %s already exists", botId);
@@ -110,10 +121,14 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
         return String.format("Added new facebookClient for bot %s", botId);
     }
 
+    /**
+     * Add a new Bot class to @botTypes, to be called at application start to provide custom Bot implementations
+     */
     @Override
     public String registerBot(Class<? extends BotImpl> botClass, String botType) {
+
         LOG.info(String.format("Registering new BotType %s", botType), StatefulBotProviderService.class);
-        if(botTypes.containsKey(botType)){
+        if (botTypes.containsKey(botType)) {
             LOG.warn(String.format("Duplicate Bot Type %s. Initial Bot Type will be overwritten.", botType));
         }
         botTypes.put(botType, botClass);
@@ -122,8 +137,8 @@ public class StafefulBotProviderServiceImpl implements StatefulBotProviderServic
 
     @Override
     public String updateBot(Long botId, String botType, FacebookClient facebookClient) {
-
-        if(!bots.containsKey(botId)){
+        //Currently unused
+        if (!bots.containsKey(botId)) {
             return String.format("Bot cannot be updated. No Bot with id %s", botId);
         }
 

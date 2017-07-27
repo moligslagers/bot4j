@@ -25,6 +25,9 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String delete(HttpServletRequest req, HttpServletResponse res) {
+        /**
+         * HTTP endpoint to delete bots from the bot respository
+         */
         LOG.info("Received DELETE", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.handleDeletion(req.getParameterMap());
         return message;
@@ -33,6 +36,10 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String get(HttpServletRequest req, HttpServletResponse res) {
+        /**
+         * HTTP endpoint to get a list of all bot types in the bot repository
+         * Currently unused
+         */
         LOG.info("Received GET", DeploymentWebhook.class);
         String message = deploymentReceiveHandler.getBotTypes();
         return message;
@@ -40,6 +47,10 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String post(HttpServletRequest req, HttpServletResponse res) {
+        /**
+         * HTTP endpoint to update the facebook configuration of an existing bot
+         * Currently unused
+         */
         LOG.info("Received POST", DeploymentWebhook.class);
         String body = getRequestBody(req);
         String message = deploymentReceiveHandler.handleUpdate(body);
@@ -48,6 +59,9 @@ public class DeploymentWebhookImpl implements DeploymentWebhook {
 
     @Override
     public String put(HttpServletRequest req, HttpServletResponse res) {
+        /**
+         * HTTP endpoint to add a new bot and the corresponding facebook configuration to the bot repository
+         */
         LOG.info("DEPLOYMENT 1");
         LOG.info("Received PUT", DeploymentWebhook.class);
         String body = getRequestBody(req);

@@ -8,11 +8,6 @@
 
 package ai.nitro.bot4j.middle;
 
-import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
-import ai.nitro.bot4j.middle.repo.impl.StafefulBotProviderServiceImpl;
-import com.google.inject.AbstractModule;
-import com.google.inject.multibindings.MapBinder;
-
 import ai.nitro.bot4j.integration.alexa.domain.AlexaPlatformEnum;
 import ai.nitro.bot4j.integration.alexa.send.impl.AlexaMessageSenderImpl;
 import ai.nitro.bot4j.integration.facebook.domain.FacebookPlatformEnum;
@@ -30,27 +25,31 @@ import ai.nitro.bot4j.middle.receive.SessionManager;
 import ai.nitro.bot4j.middle.receive.impl.DuplicateMessageFilterImpl;
 import ai.nitro.bot4j.middle.receive.impl.MessageReceiverImpl;
 import ai.nitro.bot4j.middle.receive.impl.SessionManagerImpl;
+import ai.nitro.bot4j.middle.repo.StatefulBotProviderService;
+import ai.nitro.bot4j.middle.repo.impl.StafefulBotProviderServiceImpl;
 import ai.nitro.bot4j.middle.send.MessageSender;
 import ai.nitro.bot4j.middle.send.PlatformMessageSender;
 import ai.nitro.bot4j.middle.send.impl.MessageSenderImpl;
+import com.google.inject.AbstractModule;
+import com.google.inject.multibindings.MapBinder;
 
 public class MiddlewareModule extends AbstractModule {
 
-	@Override
-	protected void configure() {
-		bind(DuplicateMessageFilter.class).to(DuplicateMessageFilterImpl.class);
-		bind(MessageReceiver.class).to(MessageReceiverImpl.class);
-		bind(MessageSender.class).to(MessageSenderImpl.class);
-		bind(PostbackPayloadService.class).to(PostbackPayloadServiceImpl.class);
-		bind(SessionManager.class).to(SessionManagerImpl.class);
-		bind(StatefulBotProviderService.class).to(StafefulBotProviderServiceImpl.class);
+    @Override
+    protected void configure() {
+        bind(DuplicateMessageFilter.class).to(DuplicateMessageFilterImpl.class);
+        bind(MessageReceiver.class).to(MessageReceiverImpl.class);
+        bind(MessageSender.class).to(MessageSenderImpl.class);
+        bind(PostbackPayloadService.class).to(PostbackPayloadServiceImpl.class);
+        bind(SessionManager.class).to(SessionManagerImpl.class);
+        bind(StatefulBotProviderService.class).to(StafefulBotProviderServiceImpl.class);
 
-		final MapBinder<Platform, PlatformMessageSender> platformMessageSenderBinder = MapBinder.newMapBinder(binder(),
-				Platform.class, PlatformMessageSender.class);
-		platformMessageSenderBinder.addBinding(FacebookPlatformEnum.FACEBOOK).to(FacebookMessageSenderImpl.class);
-		platformMessageSenderBinder.addBinding(SlackPlatformEnum.SLACK).to(SlackMessageSenderImpl.class);
-		platformMessageSenderBinder.addBinding(TelegramPlatformEnum.TELEGRAM).to(TelegramMessageSenderImpl.class);
-		platformMessageSenderBinder.addBinding(AlexaPlatformEnum.ALEXA).to(AlexaMessageSenderImpl.class);
-	}
+        final MapBinder<Platform, PlatformMessageSender> platformMessageSenderBinder = MapBinder.newMapBinder(binder(),
+                Platform.class, PlatformMessageSender.class);
+        platformMessageSenderBinder.addBinding(FacebookPlatformEnum.FACEBOOK).to(FacebookMessageSenderImpl.class);
+        platformMessageSenderBinder.addBinding(SlackPlatformEnum.SLACK).to(SlackMessageSenderImpl.class);
+        platformMessageSenderBinder.addBinding(TelegramPlatformEnum.TELEGRAM).to(TelegramMessageSenderImpl.class);
+        platformMessageSenderBinder.addBinding(AlexaPlatformEnum.ALEXA).to(AlexaMessageSenderImpl.class);
+    }
 
 }
